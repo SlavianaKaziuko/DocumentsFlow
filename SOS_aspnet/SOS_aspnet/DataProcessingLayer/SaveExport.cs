@@ -1,20 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Drawing;
 using System.Globalization;
-using System.Linq;
-using System.Web;
-using System.Windows.Forms;
 using GemBox.Spreadsheet;
 using SOS.BusinessEntities;
+using Type = System.Type;
 
 namespace SOS.DataProcessingLayer
 {
     public class SaveExport
     {
-        public SaveExport()
+        private readonly string _path;
+        public SaveExport(string path)
         {
-
+            _path = path;
         }
 
         #region Save/Print
@@ -26,7 +26,7 @@ namespace SOS.DataProcessingLayer
             // Set license key to use GemBox.Spreadsheet in a Free mode.
             SpreadsheetInfo.SetLicense("FREE-LIMITED-KEY");
 
-            var workbook = ExcelFile.Load("Templates/PFSConsult.xlsx");
+            var workbook = ExcelFile.Load(_path + @"/Templates/PFSConsult.xlsx");
             var export = workbook.Worksheets[0];
             export.Cells[1, 6].Value = consult.Id;
             export.Cells[4, 2].Value = consult.Specialist;
@@ -60,7 +60,7 @@ namespace SOS.DataProcessingLayer
             // Set license key to use GemBox.Spreadsheet in a Free mode.
             SpreadsheetInfo.SetLicense("FREE-LIMITED-KEY");
 
-            var workbook = ExcelFile.Load("Templates/CFSConsult.xlsx");
+            var workbook = ExcelFile.Load(_path + @"/Templates/CFSConsult.xlsx");
             var export = workbook.Worksheets[0];
             export.Cells[1, 6].Value = consult.Id;
             export.Cells[4, 2].Value = consult.Specialist;
@@ -88,22 +88,30 @@ namespace SOS.DataProcessingLayer
             cell.Style.ShrinkToFit = true;
         }
 
+        private void SetValueIntoCell(ExcelCell cell, string value, Type type)
+        {
+            cell.Value = Convert.ChangeType(value, type);
+            cell.Style.Borders.SetBorders(MultipleBorders.Outside, Color.Black, LineStyle.Thin);
+            cell.Style.VerticalAlignment = VerticalAlignmentStyle.Top;
+            cell.Style.WrapText = true;
+        }
+
         public void SavePrintPfsJournal(int periodId, string period, List<PfsJournal> consults)
         {
             // Set license key to use GemBox.Spreadsheet in a Free mode.
             SpreadsheetInfo.SetLicense("FREE-LIMITED-KEY");
             var line = 9;
-            var workbook = ExcelFile.Load("Templates/PfsJournal.xlsx");
+            var workbook = ExcelFile.Load(_path + @"/Templates/PfsJournal.xlsx");
             workbook.Worksheets[0].Cells[3, 9].Value = DateTime.Now.Date.ToShortDateString();
             workbook.Worksheets[0].Cells[3, 1].Value = period;
             foreach (PfsJournal pfsJournal in consults)
             {
                 var cell = 2;
-                SetValueIntoCell(workbook.Worksheets[0].Cells[line, 0], Convert.ToString(line - 8));
+                SetValueIntoCell(workbook.Worksheets[0].Cells[line, 0], Convert.ToString(line - 8), typeof (int));
                 SetValueIntoCell(workbook.Worksheets[0].Cells[line, 1], pfsJournal.Client);
                 foreach (var i in pfsJournal.Counts)
                 {
-                    SetValueIntoCell(workbook.Worksheets[0].Cells[line, cell], i.ToString(CultureInfo.InvariantCulture));
+                    SetValueIntoCell(workbook.Worksheets[0].Cells[line, cell], i.ToString(CultureInfo.InvariantCulture), typeof(int));
                     cell++;
                 }
                 line++;
@@ -123,17 +131,17 @@ namespace SOS.DataProcessingLayer
             // Set license key to use GemBox.Spreadsheet in a Free mode.
             SpreadsheetInfo.SetLicense("FREE-LIMITED-KEY");
             var line = 7;
-            var workbook = ExcelFile.Load("Templates/CfsJournal.xlsx");
+            var workbook = ExcelFile.Load(_path + @"/Templates/CfsJournal.xlsx");
             workbook.Worksheets[0].Cells[2, 7].Value = DateTime.Now.Date.ToShortDateString();
             workbook.Worksheets[0].Cells[2, 1].Value = period;
             foreach (CfsJournal cfsJournal in consults)
             {
                 var cell = 2;
-                SetValueIntoCell(workbook.Worksheets[0].Cells[line, 0], Convert.ToString(line - 6));
+                SetValueIntoCell(workbook.Worksheets[0].Cells[line, 0], Convert.ToString(line - 6), typeof(int));
                 SetValueIntoCell(workbook.Worksheets[0].Cells[line, 1], cfsJournal.Client);
                 foreach (var i in cfsJournal.Counts)
                 {
-                    SetValueIntoCell(workbook.Worksheets[0].Cells[line, cell], i.ToString(CultureInfo.InvariantCulture));
+                    SetValueIntoCell(workbook.Worksheets[0].Cells[line, cell], i.ToString(CultureInfo.InvariantCulture), typeof(int));
                     cell++;
                 }
                 line++;
@@ -153,7 +161,7 @@ namespace SOS.DataProcessingLayer
             // Set license key to use GemBox.Spreadsheet in a Free mode.
             SpreadsheetInfo.SetLicense("FREE-LIMITED-KEY");
             var line = 8;
-            var workbook = ExcelFile.Load("Templates/SJournal.xlsx");
+            var workbook = ExcelFile.Load(_path + @"/Templates/SJournal.xlsx");
 
             workbook.Worksheets[0].Cells[2, 13].Value = DateTime.Now.Date.ToShortDateString();
             workbook.Worksheets[0].Cells[2, 1].Value = period;
@@ -180,26 +188,34 @@ namespace SOS.DataProcessingLayer
             }
         }
 
-        public void SavePrint(ExcelFile file, string filename)
+        private void SavePrint(ExcelFile file, string filename)
         {
-            var fileDialog = new SaveFileDialog { FileName = filename, DefaultExt = @".xlsx", Filter = @"Excel Worksheets|*.xlsx" };
-            var result = fileDialog.ShowDialog();
-            if (result == DialogResult.OK)
+            //var fileDialog = new SaveFileDialog { FileName = filename, DefaultExt = @".xlsx", Filter = @"Excel Worksheets|*.xlsx" };
+            //var result = fileDialog.ShowDialog();
+            if (true) //result == DialogResult.OK)
             {
                 try
                 {
-                    // Save to XLSX file.
-                    file.Save(fileDialog.FileName);
-                    if (MessageBox.Show(@"Вы хотите распечатать документ?", @"Печать", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                    var options1 = new PrintOptions
                     {
-                        var options = new PrintOptions
-                        {
-                            SelectionType = SelectionType.EntireFile
-                        };
-                        file.Print(null, options);
-                        MessageBox.Show(@"Документ отправлен на печать", @"Печать", MessageBoxButtons.OK);
+                        SelectionType = SelectionType.EntireFile
+                    };
+                    file.Print(null, options1);
+                    file.Save("d:\\" + filename + ".xlsx");
+                    Process.Start("d:\\" + filename + ".xlsx");
 
-                    }
+                    //// Save to XLSX file.
+                    //file.Save(fileDialog.FileName);
+                    //if (MessageBox.Show(@"Вы хотите распечатать документ?", @"Печать", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                    //{
+                    //    var options = new PrintOptions
+                    //    {
+                    //        SelectionType = SelectionType.EntireFile
+                    //    };
+                    //    file.Print(null, options);
+                    //    MessageBox.Show(@"Документ отправлен на печать", @"Печать", MessageBoxButtons.OK);
+
+                    //}
                 }
                 catch (Exception ex)
                 {
