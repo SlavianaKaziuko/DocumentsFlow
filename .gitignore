@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 #ignore thumbnails created by windows
 Thumbs.db
@@ -54,3 +55,28 @@ node_modules/
 # SQL Server files
 App_Data/*.mdf
 App_Data/*.ldf
+=======
+# Object files
+*.o
+*.ko
+*.obj
+*.elf
+
+# Libraries
+*.lib
+*.a
+
+# Shared objects (inc. Windows DLLs)
+*.dll
+*.so
+*.so.*
+*.dylib
+
+# Executables
+*.exe
+*.out
+*.app
+*.i*86
+*.x86_64
+*.hex
+>>>>>>> ece2b7277e4d62808da55e2de2e1535454696bc2
