@@ -10,31 +10,34 @@ namespace SOS.Pages
     public partial class JournalsPage : Page
     {
         readonly DataProcessing _proc = new DataProcessing();
-        readonly SaveExport _save = new SaveExport();
+        private SaveExport _save;
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            _save = new SaveExport(Server.MapPath("~"));
             if (!Page.IsPostBack)
             {
                 periods_dropdown.DataSource = _proc.GetPeriods();
 
                 periods_dropdown.DataTextField = "Name";
                 periods_dropdown.DataValueField = "ID";
-                DataBind();
+                periods_dropdown.DataBind();
 
             }
             GVCfsJournal.DataSource = _proc.GetCfsJournalSet(Convert.ToInt32(periods_dropdown.SelectedValue));
-            //GVCfsJournal.DataSource = db.GetPfsJournal(0);
+            GVPfsJournal.DataSource = _proc.GetPfsJournalSet(Convert.ToInt32(periods_dropdown.SelectedValue));
             GVSpecJournal.DataSource = _proc.GetSpecJournalSet(Convert.ToInt32(periods_dropdown.SelectedValue));
             SetJournal();
-            DataBind();
+            GVCfsJournal.DataBind();
+            GVPfsJournal.DataBind();
+            GVSpecJournal.DataBind();
         }
 
-        protected void GetCfsJournal_Click(object sender, EventArgs e)
+        protected void GetJournal_Click(object sender, EventArgs e)
         {
 
             GVCfsJournal.DataSource = _proc.GetCfsJournalSet(Convert.ToInt32(periods_dropdown.SelectedValue));
-            //GVCfsJournal.DataSource = db.GetPfsJournal(0);
+            GVPfsJournal.DataSource = _proc.GetPfsJournalSet(Convert.ToInt32(periods_dropdown.SelectedValue));
             GVSpecJournal.DataSource = _proc.GetSpecJournalSet(Convert.ToInt32(periods_dropdown.SelectedValue));
             SetJournal();
             DataBind();
@@ -70,7 +73,7 @@ namespace SOS.Pages
         {
             try
             {
-                _save.SavePrintSpecJournal(Convert.ToInt32(periods_dropdown.SelectedValue), periods_dropdown.Text, (List<SpecJournal>)GVSpecJournal.DataSource);
+                _save.SavePrintSpecJournal(Convert.ToInt32(periods_dropdown.SelectedValue), periods_dropdown.Text, _proc.GetSpecJournal(Convert.ToInt32(periods_dropdown.SelectedValue)));
             }
             catch (Exception error)
             {
@@ -81,7 +84,7 @@ namespace SOS.Pages
         {
             try
             {
-                _save.SavePrintCfsJournal(Convert.ToInt32(periods_dropdown.SelectedValue), periods_dropdown.Text, (List<CfsJournal>)GVSpecJournal.DataSource);
+                _save.SavePrintCfsJournal(Convert.ToInt32(periods_dropdown.SelectedValue), periods_dropdown.Text, _proc.GetCfsJournal(Convert.ToInt32(periods_dropdown.SelectedValue)));
             }
             catch (Exception error)
             {
@@ -92,7 +95,7 @@ namespace SOS.Pages
         {
             try
             {
-                _save.SavePrintPfsJournal(Convert.ToInt32(periods_dropdown.SelectedValue), periods_dropdown.Text, (List<PfsJournal>)GVSpecJournal.DataSource);
+                _save.SavePrintPfsJournal(Convert.ToInt32(periods_dropdown.SelectedValue), periods_dropdown.Text, _proc.GetPfsJournal(Convert.ToInt32(periods_dropdown.SelectedValue)));
             }
             catch (Exception error)
             {

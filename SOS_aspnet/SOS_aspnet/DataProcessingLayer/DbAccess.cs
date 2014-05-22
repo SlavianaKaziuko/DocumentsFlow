@@ -465,6 +465,29 @@ namespace SOS.DataProcessingLayer
             return ds;
         }
 
+        public DataSet GetPfsJournalSet(int periodId)
+        {
+            var da = new SqlDataAdapter();
+            var ds = new DataSet();
+            var command = new SqlCommand("exec [GetPFSJournal] @periodId", _connection);
+            command.Parameters.Add("@periodId", SqlDbType.Int).Value = periodId;
+            try
+            {
+                da.SelectCommand = command;
+                _connection.Open();
+                da.Fill(ds);
+            }
+            catch (SqlException exp)
+            {
+                throw new Exception(exp.Message);
+            }
+            finally
+            {
+                _connection.Close();
+            }
+            return ds;
+        }
+
         public DataSet GetSpecJournalSet(int periodId)
         {
             var da = new SqlDataAdapter();

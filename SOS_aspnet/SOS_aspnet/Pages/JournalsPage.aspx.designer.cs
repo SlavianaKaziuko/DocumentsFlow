@@ -49,15 +49,6 @@ namespace SOS.Pages {
         protected global::System.Web.UI.WebControls.DropDownList periods_dropdown;
         
         /// <summary>
-        /// GetCfsJournal control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlButton GetCfsJournal;
-        
-        /// <summary>
         /// Journals control.
         /// </summary>
         /// <remarks>
@@ -76,15 +67,6 @@ namespace SOS.Pages {
         protected global::System.Web.UI.WebControls.View vCfsJournal;
         
         /// <summary>
-        /// GVCfsJournal control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GVCfsJournal;
-        
-        /// <summary>
         /// btnExpCfsJournal control.
         /// </summary>
         /// <remarks>
@@ -92,6 +74,15 @@ namespace SOS.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnExpCfsJournal;
+        
+        /// <summary>
+        /// GVCfsJournal control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView GVCfsJournal;
         
         /// <summary>
         /// vPfsJournal control.
@@ -103,15 +94,6 @@ namespace SOS.Pages {
         protected global::System.Web.UI.WebControls.View vPfsJournal;
         
         /// <summary>
-        /// GVPfsJournal control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GVPfsJournal;
-        
-        /// <summary>
         /// btnExpPfsJournal control.
         /// </summary>
         /// <remarks>
@@ -119,6 +101,15 @@ namespace SOS.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnExpPfsJournal;
+        
+        /// <summary>
+        /// GVPfsJournal control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView GVPfsJournal;
         
         /// <summary>
         /// vSpecJournal control.
@@ -130,15 +121,6 @@ namespace SOS.Pages {
         protected global::System.Web.UI.WebControls.View vSpecJournal;
         
         /// <summary>
-        /// GVSpecJournal control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GVSpecJournal;
-        
-        /// <summary>
         /// btnExpSpecJournal control.
         /// </summary>
         /// <remarks>
@@ -146,6 +128,15 @@ namespace SOS.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnExpSpecJournal;
+        
+        /// <summary>
+        /// GVSpecJournal control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView GVSpecJournal;
         
         /// <summary>
         /// lblerror control.

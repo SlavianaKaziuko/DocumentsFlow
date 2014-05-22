@@ -9,10 +9,7 @@
 		<asp:GridView ID="GVIndivJournal" runat="server" Width="100%" AllowPaging="true" PageSize="10" OnPageIndexChanging="gridView_PageIndexChanging">
 			<PagerSettings Mode="NumericFirstLast" PageButtonCount="4" FirstPageText="First" LastPageText="Last" />
 		</asp:GridView>
-			<i>You are viewing page
-					<%=GVIndivJournal.PageIndex + 1%>
-of
-					<%=GVIndivJournal.PageCount%>
+			<i>стр.<%=GVIndivJournal.PageIndex + 1%> из <%=GVIndivJournal.PageCount%>
 			</i>
 			<asp:Button ID="btnExpJournal" runat="server" OnClick="JournalExport" CssClass="btn"  Visible="False"/>
 
