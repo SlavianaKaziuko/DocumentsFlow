@@ -1,0 +1,9 @@
+﻿CREATE TABLE [dbo].[houses]
+(
+	[ID]		INT				IDENTITY (1, 1) NOT FOR REPLICATION NOT NULL, 
+	[Code]		NVARCHAR(5)		NOT NULL,
+	[Sponsor]	NVARCHAR(200)	NULL
+
+	CONSTRAINT [PK_houses_ID] PRIMARY KEY ([ID])
+
+)

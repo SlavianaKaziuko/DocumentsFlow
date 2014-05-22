@@ -1,0 +1,51 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Master.Master.cs" Inherits="SOS.Master" %>
+
+<%--<%@ MasterType  virtualPath="~/Master.master"%>--%>
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+	<title>
+		<asp:ContentPlaceHolder ID="TitleHolder" runat="server"></asp:ContentPlaceHolder>
+	</title>
+	<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+	<link type="text/css" rel="stylesheet" href="/css/bootstrap.css" />
+	<link type="text/css" rel="stylesheet" href="/css/calendar.css" />
+	<link type="text/css" rel="stylesheet" href="/css/bootstrap.min.css" />
+
+	<script type="text/javascript" src="/js/jquery.js"></script>
+	<script type="text/javascript" src="/js/bootstrap.js"></script>
+	<script type="text/javascript" src="/js/bootstrap-dropdown.js"></script>
+	<script type="text/javascript" src="/js/calendar.js"></script>
+	<script src="http://cdnjs.cloudflare.com/ajax/libs/moment.js/2.5.1/moment.min.js"></script>
+
+	<asp:ContentPlaceHolder ID="ScriptHolder" runat="server"></asp:ContentPlaceHolder>
+</head>
+<body>
+	<form id="form" runat="server">
+		<div class="page-header navbar-fixed-top" style="background-color: white">
+			<table width="100%">
+				<tr>
+					<td style="width: 123px;"><a href="/Pages/Main.aspx">
+						<img src="/img/SOSMogilev.jpg" alt="logo" style="height: 50px;" runat="server" /></a></td>
+					<td style="vertical-align: bottom;">
+						<ul class=" inline nav nav-tabs ">
+							<li><a id="linkJournals" class="" href="/Pages/JournalsPage.aspx" runat="server">Журналы</a></li>
+							<li><a id="linkCfsConsult" class="" href="/Pages/CFSConsult.aspx" runat="server">Консультация ребенка семьи-бенефицианта</a></li>
+							<li><a id="linkPfsConsult" class="" href="/Pages/PFSConsult.aspx" runat="server">Консультация родителя семьи-бенефицианта</a></li>
+						</ul>
+					</td>
+					<td class="text-center"><span runat="server" id="lblUserWelcome" style="color: #32a7d8"></span><span class="value" id="lblId" runat="server"></span>
+						<asp:ImageButton runat="server" OnClick="LogoutUser" ImageUrl="/img/logouticon.png" ImageAlign="Right"/>
+					</td>
+				</tr>
+			</table>
+		</div>
+		<div class="container" style="width: 100%; margin: 90px 0 0 0; min-height: 400px;">
+			<asp:ContentPlaceHolder ID="ContentHolder" runat="server">
+			</asp:ContentPlaceHolder>
+		</div>
+	</form>
+	<footer class="modal-footer">Любящая семья для каждого ребёнка</footer>
+</body>
+</html>

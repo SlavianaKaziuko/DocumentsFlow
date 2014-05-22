@@ -1,0 +1,30 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{712DE2A8-B822-4D35-BD20-E23B4480E6D8}"
+	ProjectSection(SolutionItems) = preProject
+		SOS_DB.vsmdi = SOS_DB.vsmdi
+	EndProjectSection
+EndProject
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "SOSDD.Mog", "SOS_DB\SOSDD.Mog.sqlproj", "{20CAF10F-1BA9-455E-B26F-6F836B6A76BA}"
+EndProject
+Global
+	GlobalSection(TestCaseManagementSettings) = postSolution
+		CategoryFile = SOS_DB.vsmdi
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{20CAF10F-1BA9-455E-B26F-6F836B6A76BA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{20CAF10F-1BA9-455E-B26F-6F836B6A76BA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{20CAF10F-1BA9-455E-B26F-6F836B6A76BA}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{20CAF10F-1BA9-455E-B26F-6F836B6A76BA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{20CAF10F-1BA9-455E-B26F-6F836B6A76BA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{20CAF10F-1BA9-455E-B26F-6F836B6A76BA}.Release|Any CPU.Deploy.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

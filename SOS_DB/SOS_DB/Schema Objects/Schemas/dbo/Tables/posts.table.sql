@@ -1,0 +1,7 @@
+﻿CREATE TABLE [dbo].[posts]
+(
+	[ID]			INT				IDENTITY (1, 1) NOT FOR REPLICATION NOT NULL, 
+	[PostName]		NVARCHAR(50)	NULL,
+	
+	CONSTRAINT [PK_posts_ID] PRIMARY KEY ([ID])
+)

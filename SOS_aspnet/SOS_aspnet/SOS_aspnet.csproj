@@ -1,0 +1,259 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{88A68EAE-C8F2-4587-8569-6115ECA2289B}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SOS</RootNamespace>
+    <AssemblyName>SOS</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AspNet.ScriptManager.bootstrap">
+      <HintPath>..\packages\AspNet.ScriptManager.bootstrap.3.1.1\lib\net40\AspNet.ScriptManager.bootstrap.dll</HintPath>
+    </Reference>
+    <Reference Include="GemBox.Document">
+      <HintPath>..\packages\GemBox.Document.23.3.30.1040\lib\net30\GemBox.Document.dll</HintPath>
+    </Reference>
+    <Reference Include="GemBox.Spreadsheet">
+      <HintPath>..\packages\GemBox.Spreadsheet.37.3.30.1110\lib\net30\GemBox.Spreadsheet.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="css\bootstrap-responsive.css" />
+    <Content Include="css\bootstrap-responsive.min.css" />
+    <Content Include="css\bootstrap.css" />
+    <Content Include="css\bootstrap.min.css" />
+    <Content Include="css\calendar.css" />
+    <Content Include="favicon.ico" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="ico.ico" />
+    <Content Include="img\bg-black.png" />
+    <Content Include="img\glyphicons-halflings-white.png" />
+    <Content Include="img\glyphicons-halflings.png" />
+    <Content Include="img\header.jpg" />
+    <Content Include="img\header.png" />
+    <Content Include="img\header\culture.jpg" />
+    <Content Include="img\header\education.jpg" />
+    <Content Include="img\header\family.jpg" />
+    <Content Include="img\header\home.jpg" />
+    <Content Include="img\header\logo.jpg" />
+    <Content Include="img\header\moments.jpg" />
+    <Content Include="img\header\motherhood.jpg" />
+    <Content Include="img\header\siblings.jpg" />
+    <Content Include="img\header\villages.jpg" />
+    <Content Include="img\ico.ico" />
+    <Content Include="img\logout.png" />
+    <Content Include="img\logouticon.png" />
+    <Content Include="img\photos\IMGP0394.jpg" />
+    <Content Include="img\photos\IMGP0400.jpg" />
+    <Content Include="img\photos\IMGP0465.jpg" />
+    <Content Include="img\photos\IMGP0577.jpg" />
+    <Content Include="img\photos\IMGP1022.jpg" />
+    <Content Include="img\photos\IMGP1178.jpg" />
+    <Content Include="img\photos\IMGP1236.jpg" />
+    <Content Include="img\photos\IMGP2776.jpg" />
+    <Content Include="img\photos\IMGP2791.jpg" />
+    <Content Include="img\photos\IMGP7930.jpg" />
+    <Content Include="img\photos\IMGP7950.jpg" />
+    <Content Include="img\photos\_IGP0258.jpg" />
+    <Content Include="img\SOS.jpg" />
+    <Content Include="img\SOSMogilev.jpg" />
+    <Content Include="js\bootstrap-dropdown.js" />
+    <Content Include="js\bootstrap.js" />
+    <Content Include="js\bootstrap.min.js" />
+    <Content Include="js\calendar.js" />
+    <Content Include="js\jquery.js" />
+    <Content Include="Pages\AddClient.aspx" />
+    <Content Include="Pages\CFSConsult.aspx" />
+    <Content Include="Pages\JournalsPage.aspx" />
+    <Content Include="Pages\LoginPage.aspx" />
+    <Content Include="Pages\Main.aspx" />
+    <Content Include="Pages\PasswordRestoringPage.aspx" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <None Include="Scripts\jquery-2.1.0.intellisense.js" />
+    <Content Include="Pages\PFSConsult.aspx" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\jquery-2.1.0.js" />
+    <Content Include="Scripts\jquery-2.1.0.min.js" />
+    <Content Include="UserControls\calendar.ascx" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BusinessEntities\JournalByStaff.cs" />
+    <Compile Include="BusinessEntities\Type.cs" />
+    <Compile Include="BusinessEntities\Period.cs" />
+    <Compile Include="BusinessEntities\User.cs" />
+    <Compile Include="DataProcessingLayer\DbAccess.cs" />
+    <Compile Include="BusinessEntities\CfsConsult.cs" />
+    <Compile Include="BusinessEntities\CfsJournal.cs" />
+    <Compile Include="BusinessEntities\Client.cs" />
+    <Compile Include="BusinessEntities\PfsConsult.cs" />
+    <Compile Include="BusinessEntities\PfsJournal.cs" />
+    <Compile Include="BusinessEntities\SpecJournal.cs" />
+    <Compile Include="DataProcessingLayer\SaveExport.cs" />
+    <Compile Include="MyMemberShip\MyMemberShip.cs" />
+    <Compile Include="Pages\AddClient.aspx.cs">
+      <DependentUpon>AddClient.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\AddClient.aspx.designer.cs">
+      <DependentUpon>AddClient.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\CFSConsult.aspx.cs">
+      <DependentUpon>CFSConsult.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\CFSConsult.aspx.designer.cs">
+      <DependentUpon>CFSConsult.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\JournalsPage.aspx.cs">
+      <DependentUpon>JournalsPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\JournalsPage.aspx.designer.cs">
+      <DependentUpon>JournalsPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\LoginPage.aspx.cs">
+      <DependentUpon>LoginPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\LoginPage.aspx.designer.cs">
+      <DependentUpon>LoginPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Main.aspx.cs">
+      <DependentUpon>Main.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Main.aspx.designer.cs">
+      <DependentUpon>Main.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Master.Master.cs">
+      <DependentUpon>Master.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\PasswordRestoringPage.aspx.cs">
+      <DependentUpon>PasswordRestoringPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\PasswordRestoringPage.aspx.designer.cs">
+      <DependentUpon>PasswordRestoringPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\PFSConsult.aspx.cs">
+      <DependentUpon>PFSConsult.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\PFSConsult.aspx.designer.cs">
+      <DependentUpon>PFSConsult.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UserControls\calendar.ascx.cs">
+      <DependentUpon>calendar.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\calendar.ascx.designer.cs">
+      <DependentUpon>calendar.ascx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Master.Master" />
+    <Content Include="packages.config" />
+    <Content Include="Scripts\jquery-2.1.0.min.map" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>favicon.ico</ApplicationIcon>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>39550</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:61753/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
