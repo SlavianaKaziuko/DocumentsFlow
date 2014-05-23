@@ -112,6 +112,7 @@
     <Content Include="js\jquery.js" />
     <Content Include="Pages\AddClient.aspx" />
     <Content Include="Pages\CFSConsult.aspx" />
+    <Content Include="Pages\error.aspx" />
     <Content Include="Pages\JournalsPage.aspx" />
     <Content Include="Pages\LoginPage.aspx" />
     <Content Include="Pages\Main.aspx" />
@@ -157,6 +158,13 @@
     </Compile>
     <Compile Include="Pages\CFSConsult.aspx.designer.cs">
       <DependentUpon>CFSConsult.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\error.aspx.cs">
+      <DependentUpon>error.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\error.aspx.designer.cs">
+      <DependentUpon>error.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\JournalsPage.aspx.cs">
       <DependentUpon>JournalsPage.aspx</DependentUpon>

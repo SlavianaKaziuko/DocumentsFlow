@@ -36,15 +36,15 @@
 		</tr>
 		<tr>
 			<td>
-				<asp:RadioButton ID="rbIsPlanned" Text="Запланировано в ПРС" runat="server" CssClass="radio"/>
-				<asp:RadioButton ID="rbIsNotPlanned" Text="Не запланировано в ПРС" runat="server" CssClass="radio"/>
+				<asp:RadioButton ID="rbIsPlanned" Text="Запланировано в ПРС" runat="server" CssClass=""/>
+				<asp:RadioButton ID="rbIsNotPlanned" Text="Не запланировано в ПРС" runat="server" CssClass=""/>
 				<span>Другое</span><asp:TextBox ID="txtAnotherPlanned" runat="server" CssClass="input-medium"></asp:TextBox>
 			</td>
 			<td>
-				<asp:CheckBox ID="chbInform" Text="Предоставление информации" runat="server"  CssClass="checkbox"/>
-				<asp:CheckBox ID="chbConsulting" Text="Консультирование" runat="server"  CssClass="checkbox"/>
-				<asp:CheckBox ID="chbPsyhoDiagn" Text="Психодиагностика" runat="server"  CssClass="checkbox"/>
-				<asp:CheckBox ID="chbTerapetSession" Text="Терапевтическая сессия" runat="server" CssClass="checkbox"/>
+				<asp:CheckBox ID="chbInform" Text="Предоставление информации" runat="server"  CssClass=""/>
+				<asp:CheckBox ID="chbConsulting" Text="Консультирование" runat="server"  CssClass=""/>
+				<asp:CheckBox ID="chbPsyhoDiagn" Text="Психодиагностика" runat="server"  CssClass=""/>
+				<asp:CheckBox ID="chbTerapetSession" Text="Терапевтическая сессия" runat="server" CssClass=""/>
 				<span>Другое</span><asp:TextBox ID="txtAnotherType" runat="server" CssClass="input-medium"></asp:TextBox>
 			</td>
 		</tr>

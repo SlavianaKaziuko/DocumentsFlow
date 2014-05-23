@@ -8,7 +8,7 @@
 	<title>
 		<asp:ContentPlaceHolder ID="TitleHolder" runat="server"></asp:ContentPlaceHolder>
 	</title>
-	<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+	<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
 	<link type="text/css" rel="stylesheet" href="/css/bootstrap.css" />
 	<link type="text/css" rel="stylesheet" href="/css/calendar.css" />
 	<link type="text/css" rel="stylesheet" href="/css/bootstrap.min.css" />

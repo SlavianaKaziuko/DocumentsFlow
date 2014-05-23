@@ -106,9 +106,9 @@ namespace SOS.DataProcessingLayer
             command.Parameters.Add("@STCTerrapevtSession", SqlDbType.Char, 1).Value = consult.StcTerrapevtSession
                 ? "Y"
                 : "N";
-            command.Parameters.Add("@STCAnother", SqlDbType.NVarChar, 40).Value = consult.StcAnother!=null ? consult.StcAnother: "";
+            command.Parameters.Add("@STCAnother", SqlDbType.NVarChar, 40).Value = consult.StcAnother ?? "";
             command.Parameters.Add("@STPScheduled", SqlDbType.Char, 1).Value = consult.StpScheduled ? "Y" : "N";
-            command.Parameters.Add("@STPAnother", SqlDbType.NVarChar, 40).Value = "";
+            command.Parameters.Add("@STPAnother", SqlDbType.NVarChar, 40).Value = consult.StpAnother ?? "";
             command.Parameters.Add("@FormTypeID", SqlDbType.Int).Value = consult.FormType;
             command.Parameters.Add("@ContentTypeID", SqlDbType.Int).Value = consult.ContentType;
             command.Parameters.Add("@ProblemDiscription", SqlDbType.NVarChar, 300).Value = consult.ProblemDiscription;
@@ -152,9 +152,9 @@ namespace SOS.DataProcessingLayer
             command.Parameters.Add("@STCTerrapevtSession", SqlDbType.Char, 1).Value = consult.StcTerrapevtSession
                 ? "Y"
                 : "N";
-            command.Parameters.Add("@STCAnother", SqlDbType.NVarChar, 40).Value = "";
+            command.Parameters.Add("@STCAnother", SqlDbType.NVarChar, 40).Value = consult.StcAnother ?? "";
             command.Parameters.Add("@STPScheduled", SqlDbType.Char, 1).Value = consult.StpScheduled ? "Y" : "N";
-            command.Parameters.Add("@STPAnother", SqlDbType.NVarChar, 40).Value = consult.StpAnother;
+            command.Parameters.Add("@STPAnother", SqlDbType.NVarChar, 40).Value = consult.StpAnother ?? "";
             command.Parameters.Add("@FormTypeID", SqlDbType.Int).Value = consult.FormType;
             command.Parameters.Add("@ContentTypeID", SqlDbType.Int).Value = consult.ContentType;
             command.Parameters.Add("@ProblemDiscription", SqlDbType.NVarChar, 300).Value = consult.ProblemDiscription;

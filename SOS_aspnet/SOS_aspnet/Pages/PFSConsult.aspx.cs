@@ -9,6 +9,7 @@ namespace SOS.Pages
     public partial class PFSConsult : System.Web.UI.Page
     {
         private readonly DataProcessing _proc = new DataProcessing();
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!Page.IsPostBack)
@@ -25,7 +26,7 @@ namespace SOS.Pages
                 SelForm.DataTextField = "TypeName";
                 SelForm.DataValueField = "Id";
                 SelForm.DataBind();
-                
+
             }
             if (Request.QueryString.HasKeys())
             {
@@ -70,8 +71,14 @@ namespace SOS.Pages
                         ConversResults = txtResults.Text,
                         LocalSpecialistId =
                             Convert.ToInt32(((HtmlGenericControl) Master.FindControl("lblId")).InnerText),
-                        NextSessionDate =
-                            Convert.ToDateTime(calendar.GetDate())
+                        NextSessionDate = Convert.ToDateTime(calendar.GetDate()),
+                        StcConsultation = chbConsulting.Checked,
+                        StcGivingInformation = chbInform.Checked,
+                        StcPsychodiagnost = chbPsyhoDiagn.Checked,
+                        StcTerrapevtSession = chbTerapetSession.Checked,
+                        StcAnother = txtAnotherType.Text,
+                        StpScheduled = rbIsPlanned.Checked,
+                        StpAnother = txtAnotherPlanned.Text
                     }).ToString(CultureInfo.InvariantCulture);
                 btnSave.Visible = false;
                 btnUpdate.Visible = true;
@@ -99,12 +106,20 @@ namespace SOS.Pages
                         ProblemDiscription = txtProblem.Text,
                         ConversDiscription = txtConversation.Text,
                         ConversResults = txtResults.Text,
-                        LocalSpecialistId = Convert.ToInt32(((HtmlGenericControl)Master.FindControl("lblId")).InnerText),
-                        NextSessionDate = Convert.ToDateTime(calendar.GetDate())
+                        LocalSpecialistId =
+                            Convert.ToInt32(((HtmlGenericControl) Master.FindControl("lblId")).InnerText),
+                        NextSessionDate = Convert.ToDateTime(calendar.GetDate()),
+                        StcConsultation = chbConsulting.Checked,
+                        StcGivingInformation = chbInform.Checked,
+                        StcPsychodiagnost = chbPsyhoDiagn.Checked,
+                        StcTerrapevtSession = chbTerapetSession.Checked,
+                        StcAnother = txtAnotherType.Text,
+                        StpScheduled = rbIsPlanned.Checked,
+                        StpAnother = txtAnotherPlanned.Text
                     });
             }
         }
 
-    
+
     }
 }
