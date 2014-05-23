@@ -79,5 +79,22 @@ namespace SOS
                         "mail failed",
                         "<script>alert('" + message + "')</script>");
         }
+
+        protected override void OnError(EventArgs e)
+        {
+            // At this point we have information about the error
+            var ctx = HttpContext.Current;
+
+            ctx.Response.Redirect("~/Pages/error.aspx");
+
+            // --------------------------------------------------
+            // To let the page finish running we clear the error
+            // --------------------------------------------------
+            ctx.Server.ClearError();
+
+            base.OnError(e);
+        }
+
+
     }
 }

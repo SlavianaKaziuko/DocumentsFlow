@@ -13,6 +13,7 @@
 			<td width="250px">ФИО ребенка</td>
 			<td>
 				<select runat="server" id="selChild"></select>
+				<a href="./AddClient.aspx" style="margin-left: 10px;">Добавить клиента</a>
 			</td>
 		</tr>
 		<tr>

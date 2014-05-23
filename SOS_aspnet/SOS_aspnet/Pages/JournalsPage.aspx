@@ -19,7 +19,7 @@
 		<asp:View ID="vCfsJournal" runat="server">
 			<asp:Button ID="btnExpCfsJournal" runat="server" OnClick="CfsJournalExport" CssClass="btn" Text="Печать" />
 			<div style="width: 100%; overflow-x: scroll;">
-				<asp:GridView ID="GVCfsJournal" runat="server" Width="100%" AllowPaging="true" PageSize="10" OnPageIndexChanging="gridView_PageIndexChanging" AllowSorting="True" HeaderStyle="table" ShowHeaderWhenEmpty="True">
+				<asp:GridView ID="GVCfsJournal" runat="server" Width="100%" AllowPaging="true" PageSize="30" OnPageIndexChanging="gridView_PageIndexChanging" AllowSorting="True" HeaderStyle="table" ShowHeaderWhenEmpty="True" EmptyDataText="нет данных для выбранного периода" OnSorting="GVSpecJournal_Sorting">
 					<PagerSettings Mode="NumericFirstLast" PageButtonCount="4" FirstPageText="First" LastPageText="Last" />
 				</asp:GridView>
 			</div>
@@ -30,7 +30,7 @@
 		<asp:View ID="vPfsJournal" runat="server">
 			<asp:Button ID="btnExpPfsJournal" runat="server" OnClick="PfsJournalExport" CssClass="btn" Text="Печать" />
 			<div style="width: 100%; overflow-x: scroll;">
-				<asp:GridView ID="GVPfsJournal" runat="server" Width="100%" AllowPaging="true" PageSize="10" OnPageIndexChanging="gridView_PageIndexChanging" AllowSorting="True" HeaderStyle="table" ShowHeaderWhenEmpty="True" EmptyDataRowStyle="table" EmptyDataText="нет данных для выбранного периода">
+				<asp:GridView ID="GVPfsJournal" runat="server" Width="100%" AllowPaging="true" PageSize="30" OnPageIndexChanging="gridView_PageIndexChanging" AllowSorting="True" HeaderStyle="table" ShowHeaderWhenEmpty="True" EmptyDataRowStyle="table" EmptyDataText="нет данных для выбранного периода"  OnSorting="GVSpecJournal_Sorting">
 					<PagerSettings Mode="NumericFirstLast" PageButtonCount="4" FirstPageText="First" LastPageText="Last" />
 				</asp:GridView>
 			</div>
@@ -39,7 +39,7 @@
 		<asp:View ID="vSpecJournal" runat="server">
 			<asp:Button ID="btnExpSpecJournal" runat="server" OnClick="SpecJournalExport" CssClass="btn" Text="Печать" />
 			<div style="width: 100%; overflow-x: scroll;">
-				<asp:GridView ID="GVSpecJournal" runat="server" Width="100%" AllowPaging="true" PageSize="10" OnPageIndexChanging="gridView_PageIndexChanging" AllowSorting="True" HeaderStyle="table" ShowHeaderWhenEmpty="True">
+				<asp:GridView ID="GVSpecJournal" runat="server" Width="100%" AllowPaging="true" PageSize="30" OnPageIndexChanging="gridView_PageIndexChanging" AllowSorting="True" HeaderStyle="table" ShowHeaderWhenEmpty="True" EmptyDataText="нет данных для выбранного периода" OnSorting="GVSpecJournal_Sorting">
 					<PagerSettings Mode="NumericFirstLast" PageButtonCount="4" FirstPageText="First" LastPageText="Last" />
 				</asp:GridView>
 			</div>

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using SOS.BusinessEntities;
@@ -102,5 +103,26 @@ namespace SOS.Pages
                 lblerror.InnerText = error.Message;
             }
         }
+
+        protected override void OnError(EventArgs e)
+        {
+            // At this point we have information about the error
+            var ctx = HttpContext.Current;
+
+            ctx.Response.Redirect("error.aspx");
+
+            // --------------------------------------------------
+            // To let the page finish running we clear the error
+            // --------------------------------------------------
+            ctx.Server.ClearError();
+
+            base.OnError(e);
+        }
+
+        protected void GVSpecJournal_Sorting(object sender, GridViewSortEventArgs e)
+        {
+        }
+
+
     }
 }

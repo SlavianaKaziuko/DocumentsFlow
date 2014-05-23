@@ -29,5 +29,27 @@ namespace SOS.Pages
         {
             throw new NotImplementedException();
         }
+
+
+        protected override void OnError(EventArgs e)
+        {
+            // At this point we have information about the error
+            var ctx = HttpContext.Current;
+
+            ctx.Response.Redirect("error.aspx");
+
+            // --------------------------------------------------
+            // To let the page finish running we clear the error
+            // --------------------------------------------------
+            ctx.Server.ClearError();
+
+            base.OnError(e);
+        }
+
+        protected void GVIndivJournal_Sorting(object sender, GridViewSortEventArgs e)
+        {
+
+        }
+
     }
 }

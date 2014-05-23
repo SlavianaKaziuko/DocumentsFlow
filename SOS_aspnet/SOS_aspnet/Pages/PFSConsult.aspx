@@ -12,6 +12,7 @@
 			<td width="250px">ФИО</td>
 			<td>
 				<select runat="server" id="selParent"></select>
+				<a href="./AddClient.aspx" style="margin-left: 10px;">Добавить клиента</a>
 			</td>
 		</tr>
 		<tr>
@@ -35,17 +36,19 @@
 			</td>
 		</tr>
 		<tr>
-			<td>
-				<asp:RadioButton ID="rbIsPlanned" Text="Запланировано в ПРС" runat="server" CssClass=""/>
-				<asp:RadioButton ID="rbIsNotPlanned" Text="Не запланировано в ПРС" runat="server" CssClass=""/>
-				<span>Другое</span><asp:TextBox ID="txtAnotherPlanned" runat="server" CssClass="input-medium"></asp:TextBox>
+			<td class="radio" style="padding-left: 28px;">
+				<input type="radio" name="group1" value="Milk" runat="server" id="rbIsPlanned" checked="True"/>
+				<span>Запланировано в ПРС</span><br>
+				<input type="radio" name="group1" value="Butter" runat="server" id="rbIsNotPlanned" />
+				<span>Не запланировано в ПРС</span><br>
+				<label><span>Другое</span></label><asp:TextBox ID="txtAnotherPlanned" runat="server" CssClass="input-medium"></asp:TextBox>
 			</td>
-			<td>
-				<asp:CheckBox ID="chbInform" Text="Предоставление информации" runat="server"  CssClass=""/>
-				<asp:CheckBox ID="chbConsulting" Text="Консультирование" runat="server"  CssClass=""/>
-				<asp:CheckBox ID="chbPsyhoDiagn" Text="Психодиагностика" runat="server"  CssClass=""/>
-				<asp:CheckBox ID="chbTerapetSession" Text="Терапевтическая сессия" runat="server" CssClass=""/>
-				<span>Другое</span><asp:TextBox ID="txtAnotherType" runat="server" CssClass="input-medium"></asp:TextBox>
+			<td class="checkbox" style="padding-left: 28px;">
+				<asp:CheckBox ID="chbInform" Text="Предоставление информации" runat="server" CssClass="" />
+				<asp:CheckBox ID="chbConsulting" Text="Консультирование" runat="server" CssClass="" />
+				<asp:CheckBox ID="chbPsyhoDiagn" Text="Психодиагностика" runat="server" CssClass="" />
+				<asp:CheckBox ID="chbTerapetSession" Text="Терапевтическая сессия" runat="server" CssClass="" />
+				<label><span>Другое</span></label><asp:TextBox ID="txtAnotherType" runat="server" CssClass="input-medium"></asp:TextBox>
 			</td>
 		</tr>
 		<tr>

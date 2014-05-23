@@ -9,6 +9,7 @@
 	<link type="text/css" rel="stylesheet" href="../css/bootstrap.css" />
 	<%--	<script type="text/javascript" src="~/js/jquery.js"></script>--%>
 	<script type="text/javascript" src="../js/bootstrap.min.js"></script>
+	
 	<%--	<script type="text/javascript" src="~/js/bootstrap-dropdown.js"></script>--%>
 </head>
 <body style="min-height: 500px;">

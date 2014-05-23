@@ -64,7 +64,7 @@ namespace SOS.Pages {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButton rbIsPlanned;
+        protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton rbIsPlanned;
         
         /// <summary>
         /// rbIsNotPlanned control.
@@ -73,7 +73,7 @@ namespace SOS.Pages {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButton rbIsNotPlanned;
+        protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton rbIsNotPlanned;
         
         /// <summary>
         /// txtAnotherPlanned control.

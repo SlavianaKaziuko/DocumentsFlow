@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Globalization;
+using System.Web;
 using System.Web.UI.HtmlControls;
 using SOS.BusinessEntities;
 using SOS.DataProcessingLayer;
@@ -118,6 +119,22 @@ namespace SOS.Pages
                         StpAnother = txtAnotherPlanned.Text
                     });
             }
+        }
+
+
+        protected override void OnError(EventArgs e)
+        {
+            // At this point we have information about the error
+            var ctx = HttpContext.Current;
+
+            ctx.Response.Redirect("error.aspx");
+
+            // --------------------------------------------------
+            // To let the page finish running we clear the error
+            // --------------------------------------------------
+            ctx.Server.ClearError();
+
+            base.OnError(e);
         }
 
 
