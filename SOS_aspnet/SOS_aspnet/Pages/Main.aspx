@@ -7,14 +7,23 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentHolder" runat="server">
 
 	<div id="divUser" runat="server">
-		<asp:GridView ID="GVIndivJournal" runat="server" Width="100%" AllowPaging="true" PageSize="30" OnPageIndexChanging="gridView_PageIndexChanging" AllowSorting="True" HeaderStyle="table" FooterStyle="table" OnSorting="Sorting">
+		<asp:GridView ID="GVIndivCfsJournal" runat="server" Width="100%" AllowPaging="true" PageSize="30" OnPageIndexChanging="CFSgridView_PageIndexChanging" AllowSorting="True" HeaderStyle="table" FooterStyle="table" OnSorting="Sorting">
 			<PagerSettings Mode="NumericFirstLast" PageButtonCount="4" FirstPageText="First" LastPageText="Last" />
 		</asp:GridView>
-		<i>стр.<%=GVIndivJournal.PageIndex + 1%> из <%=GVIndivJournal.PageCount%>
+		<i>стр.<%=GVIndivCfsJournal.PageIndex + 1%> из <%=GVIndivCfsJournal.PageCount%>
 		</i>
-		
-		<asp:DropdownList id="selConsult" runat="server"></asp:DropdownList>
-		<button class="btn" id="btnGoToConsult" runat="server" onserverclick="ViewConsult">Перейти к редактированию</button>
+		<br />
+		<asp:DropDownList ID="selCfsConsult" runat="server"></asp:DropDownList>
+		<button class="btn" id="btnGoToCfsConsult" runat="server" onserverclick="ViewCfsConsult">Перейти к редактированию (CFS)</button>
+		<br />
+		<asp:GridView ID="GVIndivPfsJournal" runat="server" Width="100%" AllowPaging="true" PageSize="30" OnPageIndexChanging="PFSgridView_PageIndexChanging" AllowSorting="True" HeaderStyle="table" FooterStyle="table" OnSorting="Sorting">
+			<PagerSettings Mode="NumericFirstLast" PageButtonCount="4" FirstPageText="First" LastPageText="Last" />
+		</asp:GridView>
+		<i>стр.<%=GVIndivPfsJournal.PageIndex + 1%> из <%=GVIndivPfsJournal.PageCount%>
+		</i>
+		<br />
+		<asp:DropDownList ID="selPfsConsult" runat="server"></asp:DropDownList>
+		<button class="btn" id="btnGoToPfsConsult" runat="server" onserverclick="ViewPfsConsult">Перейти к редактированию (PFS)</button>
 	</div>
 
 	<div id="divSuper" runat="server">

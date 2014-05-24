@@ -22,6 +22,15 @@ namespace SOS.Pages {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl consultId;
         
         /// <summary>
+        /// btnExport control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlButton btnExport;
+        
+        /// <summary>
         /// selParent control.
         /// </summary>
         /// <remarks>
@@ -31,13 +40,13 @@ namespace SOS.Pages {
         protected global::System.Web.UI.HtmlControls.HtmlSelect selParent;
         
         /// <summary>
-        /// calendar control.
+        /// txtDate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::SOS.UserControls.Calendar calendar;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText txtDate;
         
         /// <summary>
         /// SelForm control.
@@ -184,13 +193,13 @@ namespace SOS.Pages {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvResults;
         
         /// <summary>
-        /// calendarNext control.
+        /// txtNextDate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::SOS.UserControls.Calendar calendarNext;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText txtNextDate;
         
         /// <summary>
         /// btnSave control.
@@ -211,15 +220,6 @@ namespace SOS.Pages {
         protected global::System.Web.UI.WebControls.Button btnUpdate;
         
         /// <summary>
-        /// btnExport control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnExport;
-        
-        /// <summary>
         /// errormessage control.
         /// </summary>
         /// <remarks>
@@ -236,5 +236,14 @@ namespace SOS.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ValidationSummary ValidationSummary1;
+        
+        /// <summary>
+        /// lblerror control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl lblerror;
     }
 }

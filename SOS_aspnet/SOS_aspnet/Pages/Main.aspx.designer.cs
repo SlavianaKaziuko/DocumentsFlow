@@ -22,31 +22,58 @@ namespace SOS.Pages {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl divUser;
         
         /// <summary>
-        /// GVIndivJournal control.
+        /// GVIndivCfsJournal control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GVIndivJournal;
+        protected global::System.Web.UI.WebControls.GridView GVIndivCfsJournal;
         
         /// <summary>
-        /// selConsult control.
+        /// selCfsConsult control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList selConsult;
+        protected global::System.Web.UI.WebControls.DropDownList selCfsConsult;
         
         /// <summary>
-        /// btnGoToConsult control.
+        /// btnGoToCfsConsult control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlButton btnGoToConsult;
+        protected global::System.Web.UI.HtmlControls.HtmlButton btnGoToCfsConsult;
+        
+        /// <summary>
+        /// GVIndivPfsJournal control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView GVIndivPfsJournal;
+        
+        /// <summary>
+        /// selPfsConsult control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList selPfsConsult;
+        
+        /// <summary>
+        /// btnGoToPfsConsult control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlButton btnGoToPfsConsult;
         
         /// <summary>
         /// divSuper control.

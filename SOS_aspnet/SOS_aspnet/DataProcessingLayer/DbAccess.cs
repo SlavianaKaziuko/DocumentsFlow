@@ -206,6 +206,7 @@ namespace SOS.DataProcessingLayer
                     consult.ClientId = Convert.ToInt32(dr["ClientID"].ToString());
                     consult.FormType = Convert.ToInt32(dr["FormID"].ToString());
                     consult.ContentType = Convert.ToInt32(dr["ContentID"].ToString());
+                    consult.NextSessionDate = Convert.ToDateTime(dr["Дата след."].ToString());
                 }
             }
             catch (SqlException exp)
@@ -330,7 +331,7 @@ namespace SOS.DataProcessingLayer
         public List<Period> GetPeriods()
         {
             var results = new List<Period>();
-            var command = new SqlCommand("SELECT ID, Name FROM [dbo].[periods_full]", _connection);
+            var command = new SqlCommand("SELECT ID, Name FROM [dbo].[periods_full] ORDER BY [ID] ASC", _connection);
             try
             {
                 _connection.Open();
@@ -758,28 +759,17 @@ namespace SOS.DataProcessingLayer
             return resultList;
         }
 
-        public List<JournalByStaff> GetIndivJournalByStaff(int specID)
+        public DataSet GetIndivCfsJournalByStaffSet(int specID)
         {
-            var results = new List<JournalByStaff>();
-            var command = new SqlCommand("exec [consults_by_staff] @specialistID", _connection);
+            var da = new SqlDataAdapter();
+            var ds = new DataSet();
+            var command = new SqlCommand("exec [getCFSconsults_by_staff] @specialistID", _connection);
             command.Parameters.Add("@specialistID", SqlDbType.Int).Value = specID;
             try
             {
+                da.SelectCommand = command;
                 _connection.Open();
-                var dr = command.ExecuteReader();
-                while (dr.Read())
-                {
-                    results.Add(new JournalByStaff()
-                    {
-                        Relates = dr["Клиент (тип)"].ToString(),
-                        Surname = dr["Фамилия"].ToString(),
-                        Name = dr["Имя"].ToString(),
-                        FarthersName = dr["Отчество"].ToString(),
-                        Form = dr["Форма"].ToString(),
-                        Content = dr["Содержание"].ToString(),
-                        Date = Convert.ToDateTime(dr["Дата"].ToString())
-                    });
-                }
+                da.Fill(ds);
             }
             catch (SqlException exp)
             {
@@ -789,13 +779,14 @@ namespace SOS.DataProcessingLayer
             {
                 _connection.Close();
             }
-            return results;
+            return ds;
         }
-        public DataSet GetIndivJournalByStaffSet(int specID)
+
+        public DataSet GetIndivPfsJournalByStaffSet(int specID)
         {
             var da = new SqlDataAdapter();
             var ds = new DataSet();
-            var command = new SqlCommand("exec [consults_by_staff] @specialistID", _connection);
+            var command = new SqlCommand("exec [getPFSconsults_by_staff] @specialistID", _connection);
             command.Parameters.Add("@specialistID", SqlDbType.Int).Value = specID;
             try
             {

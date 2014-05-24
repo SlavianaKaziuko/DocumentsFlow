@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Drawing;
 using System.Globalization;
+using System.Windows.Forms;
 using GemBox.Spreadsheet;
 using SOS.BusinessEntities;
 using Type = System.Type;
@@ -21,7 +22,7 @@ namespace SOS.DataProcessingLayer
 
         #region Consults
 
-        public void PrintPfsConsult(int consultId, PfsConsult consult)
+        public ExcelFile PrintPfsConsult(int consultId, PfsConsult consult)
         {
             // Set license key to use GemBox.Spreadsheet in a Free mode.
             SpreadsheetInfo.SetLicense("FREE-LIMITED-KEY");
@@ -52,10 +53,11 @@ namespace SOS.DataProcessingLayer
             export.Cells[26, 0].Style.ShrinkToFit = true;
             export.Cells[29, 0].Value = consult.ConversResults;
             export.Cells[29, 0].Style.ShrinkToFit = true;
-            SavePrint(workbook, @"ИндивКонсультВзр" + consult.Client.Replace(" ", string.Empty) + "КЦ");
+
+            return workbook;
         }
 
-        public void PrintCfsConsult(int consultId, CfsConsult consult)
+        public ExcelFile PrintCfsConsult(int consultId, CfsConsult consult)
         {
             // Set license key to use GemBox.Spreadsheet in a Free mode.
             SpreadsheetInfo.SetLicense("FREE-LIMITED-KEY");
@@ -76,7 +78,8 @@ namespace SOS.DataProcessingLayer
             export.Cells[16, 0].Style.ShrinkToFit = true;
             export.Cells[19, 0].Value = consult.ConversResults;
             export.Cells[19, 0].Style.ShrinkToFit = true;
-            SavePrint(workbook, @"ИндивКонсульт" + consult.Client.Replace(" ", string.Empty) + "КЦ");
+
+            return workbook;
         }
 
         #endregion
@@ -96,7 +99,7 @@ namespace SOS.DataProcessingLayer
             cell.Style.WrapText = true;
         }
 
-        public void SavePrintPfsJournal(int periodId, string period, List<PfsJournal> consults)
+        public ExcelFile SavePrintPfsJournal(int periodId, string period, List<PfsJournal> consults)
         {
             // Set license key to use GemBox.Spreadsheet in a Free mode.
             SpreadsheetInfo.SetLicense("FREE-LIMITED-KEY");
@@ -116,17 +119,10 @@ namespace SOS.DataProcessingLayer
                 }
                 line++;
             }
-            try
-            {
-                SavePrint(workbook, @"ОтчетИндивКонсультВзр_" + period.Replace("/", "_"));
-            }
-            catch (Exception e)
-            {
-                throw new Exception(e.Message);
-            }
+            return workbook;
         }
 
-        public void SavePrintCfsJournal(int periodId, string period, List<CfsJournal> consults)
+        public ExcelFile SavePrintCfsJournal(int periodId, string period, List<CfsJournal> consults)
         {
             // Set license key to use GemBox.Spreadsheet in a Free mode.
             SpreadsheetInfo.SetLicense("FREE-LIMITED-KEY");
@@ -146,17 +142,10 @@ namespace SOS.DataProcessingLayer
                 }
                 line++;
             }
-            try
-            {
-                SavePrint(workbook, @"ОтчетИндивКонсультДети_" + period.Replace("/", "_"));
-            }
-            catch (Exception e)
-            {
-                throw new Exception(e.Message);
-            }
+            return workbook;
         }
 
-        public void SavePrintSpecJournal(int periodId, string period, List<SpecJournal> consults)
+        public ExcelFile SavePrintSpecJournal(int periodId, string period, List<SpecJournal> consults)
         {
             // Set license key to use GemBox.Spreadsheet in a Free mode.
             SpreadsheetInfo.SetLicense("FREE-LIMITED-KEY");
@@ -178,14 +167,7 @@ namespace SOS.DataProcessingLayer
                 }
                 line++;
             }
-            try
-            {
-                SavePrint(workbook, @"ОтчетИндивКонсультСпец_");
-            }
-            catch (Exception e)
-            {
-                throw new Exception(e.Message);
-            }
+            return workbook;
         }
 
         private void SavePrint(ExcelFile file, string filename)
@@ -201,8 +183,11 @@ namespace SOS.DataProcessingLayer
                         SelectionType = SelectionType.EntireFile
                     };
                     file.Print(null, options1);
+                    var fileDialog = new SaveFileDialog { FileName = filename, DefaultExt = @".xlsx", Filter = @"Excel Worksheets|*.xlsx" };
+                    var result = fileDialog.ShowDialog();
                     file.Save("d:\\" + filename + ".xlsx");
                     Process.Start("d:\\" + filename + ".xlsx");
+
 
                     //// Save to XLSX file.
                     //file.Save(fileDialog.FileName);

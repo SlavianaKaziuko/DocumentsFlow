@@ -31,12 +31,12 @@ namespace SOS
                     lblId.InnerHtml = _user.PersonId.ToString(CultureInfo.InvariantCulture);
                     if (_user.Role == "Super")
                     {
-                        ((HtmlAnchor)FindControl("linkCfsConsult")).Visible = false;
-                        ((HtmlAnchor)FindControl("linkPfsConsult")).Visible = false;
+                        FindControl("linkCfsConsult").Visible = false;
+                        FindControl("linkPfsConsult").Visible = false;
                     }
                     else
                     {
-                        ((HtmlAnchor)FindControl("linkJournals")).Visible = false;
+                        FindControl("linkJournals").Visible = false;
                     }
                 }
             }
@@ -68,35 +68,16 @@ namespace SOS
 
         }
 
-
-        protected void LogoutUser(object sender, EventArgs e)
-        {
-
-            FormsAuthentication.SignOut();
-
-            Response.Redirect("~/Pages/LoginPage.aspx");
-        }
-
-        public void ShowErrorMessage(string message)
-        {
-            Page.ClientScript.RegisterStartupScript(
-                        this.GetType(),
-                        "mail failed",
-                        "<script>alert('" + message + "')</script>");
-        }
-
         protected override void OnError(EventArgs e)
         {
             // At this point we have information about the error
             var ctx = HttpContext.Current;
 
             ctx.Response.Redirect("~/Pages/error.aspx");
-
             // --------------------------------------------------
             // To let the page finish running we clear the error
             // --------------------------------------------------
             ctx.Server.ClearError();
-
             base.OnError(e);
         }
 

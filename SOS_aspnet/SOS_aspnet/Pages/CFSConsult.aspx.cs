@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Globalization;
+using System.IO;
 using System.Web;
 using System.Web.UI.HtmlControls;
 using SOS.BusinessEntities;
@@ -17,33 +18,31 @@ namespace SOS.Pages
         {
             _save = new SaveExport(Server.MapPath("~"));
 
-            if (!Page.IsPostBack)
-            {
-                selChild.DataSource = _proc.GetCfsList();
-                selChild.DataTextField = "FIO";
-                selChild.DataValueField = "Id";
-                selChild.DataBind();
-                SelContent.DataSource = _proc.GetContentTypes("CFS");
-                SelContent.DataTextField = "TypeName";
-                SelContent.DataValueField = "Id";
-                SelContent.DataBind();
-                SelForm.DataSource = _proc.GetFormTypes("CFS");
-                SelForm.DataTextField = "TypeName";
-                SelForm.DataValueField = "Id";
-                SelForm.DataBind();
-
-                
-            }
+            if (Page.IsPostBack) return;
+            selChild.DataSource = _proc.GetCfsList();
+            selChild.DataTextField = "FIO";
+            selChild.DataValueField = "Id";
+            selChild.DataBind();
+            SelContent.DataSource = _proc.GetContentTypes("CFS");
+            SelContent.DataTextField = "TypeName";
+            SelContent.DataValueField = "Id";
+            SelContent.DataBind();
+            SelForm.DataSource = _proc.GetFormTypes("CFS");
+            SelForm.DataTextField = "TypeName";
+            SelForm.DataValueField = "Id";
+            SelForm.DataBind();
             if (Request.QueryString.HasKeys())
             {
                 consultId.InnerText = Request.QueryString["consultid"];
                 var consult = _proc.GetCfsConsult(Convert.ToInt32(consultId.InnerText));
                 selChild.Value = consult.ClientId.ToString(CultureInfo.InvariantCulture);
+                txtDate.Value = consult.Date.ToString("d", CultureInfo.InvariantCulture);
                 SelContent.Value = consult.ContentType.ToString(CultureInfo.InvariantCulture);
                 SelForm.Value = consult.FormType.ToString(CultureInfo.InvariantCulture);
                 txtProblem.Text = consult.ProblemDiscription;
                 txtConversation.Text = consult.ConversDiscription;
                 txtResults.Text = consult.ConversResults;
+                txtNextDate.Value = consult.NextSessionDate.ToString("d", CultureInfo.InvariantCulture);
                 btnSave.Visible = false;
                 btnUpdate.Visible = true;
                 btnExport.Visible = true;
@@ -54,14 +53,11 @@ namespace SOS.Pages
                 btnSave.Visible = true;
                 btnUpdate.Visible = false;
                 btnExport.Visible = false;
-
             }
-
         }
 
         protected void Save_Click(object sender, EventArgs e)
         {
-            //var dat = calendar.GetDate();
             if (consultId.InnerText != "")
             {
                 errormessage.InnerText = "Произошла ошабка!";
@@ -74,7 +70,7 @@ namespace SOS.Pages
                     consultId.InnerText = _proc.SaveCfsConsult(new CfsConsult
                     {
                         ClientId = Convert.ToInt32(selChild.Value),
-                        Date = Convert.ToDateTime(calendar.GetDate()),
+                        Date = Convert.ToDateTime(txtDate.Value, CultureInfo.InvariantCulture),
                         ContentType = Convert.ToInt32(SelContent.Value),
                         FormType = Convert.ToInt32(SelForm.Value),
                         ProblemDiscription = txtProblem.Text,
@@ -83,7 +79,7 @@ namespace SOS.Pages
                         LocalSpecialistId =
                             Convert.ToInt32(((HtmlGenericControl) Master.FindControl("lblId")).InnerText),
                         NextSessionDate =
-                            Convert.ToDateTime(calendarnext.GetDate())
+                            Convert.ToDateTime(txtNextDate.Value, CultureInfo.InvariantCulture)
                     }).ToString(CultureInfo.InvariantCulture);
                     btnSave.Visible = false;
                     btnUpdate.Visible = true;
@@ -106,7 +102,7 @@ namespace SOS.Pages
                     {
                         Id = Convert.ToInt32(consultId.InnerText),
                         ClientId = Convert.ToInt32(selChild.Value),
-                        Date = Convert.ToDateTime(calendar.GetDate()),
+                        Date = Convert.ToDateTime(txtDate.Value, CultureInfo.InvariantCulture),
                         ContentType = Convert.ToInt32(SelContent.Value),
                         FormType = Convert.ToInt32(SelForm.Value),
                         ProblemDiscription = txtProblem.Text,
@@ -115,7 +111,7 @@ namespace SOS.Pages
                         LocalSpecialistId =
                             Convert.ToInt32(((HtmlGenericControl) Master.FindControl("lblId")).InnerText),
                         NextSessionDate =
-                            Convert.ToDateTime(calendarnext.GetDate())
+                            Convert.ToDateTime(txtNextDate.Value, CultureInfo.InvariantCulture)
                     });
             }
         }
@@ -139,7 +135,19 @@ namespace SOS.Pages
 
         protected void btnExport_OnClick(object sender, EventArgs e)
         {
-            _save.PrintCfsConsult(Convert.ToInt32(consultId.InnerText), _proc.GetCfsConsult(Convert.ToInt32(consultId.InnerText)));
+            try
+            {
+                var book = _save.PrintCfsConsult(Convert.ToInt32(consultId.InnerText), _proc.GetCfsConsult(Convert.ToInt32(consultId.InnerText)));
+                Response.Clear();
+                Response.ClearHeaders();
+                book.Save(Response, Path.ChangeExtension(@"Консультация_" + consultId.InnerText, ".xlsx"));
+                Response.End();
+            }
+            catch (Exception error)
+            {
+                lblerror.InnerText = error.Message;
+            }
+
         }
     }
 }

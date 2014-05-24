@@ -19,7 +19,7 @@ namespace SOS.Pages {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlSelect selType;
+        protected global::System.Web.UI.WebControls.DropDownList selType;
         
         /// <summary>
         /// txtSurname control.
@@ -56,6 +56,15 @@ namespace SOS.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RadioButtonList rbMale;
+        
+        /// <summary>
+        /// txtBirthDate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText txtBirthDate;
         
         /// <summary>
         /// btnSaveClient control.

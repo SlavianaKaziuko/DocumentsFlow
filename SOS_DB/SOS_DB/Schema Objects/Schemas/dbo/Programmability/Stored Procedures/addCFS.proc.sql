@@ -5,6 +5,6 @@
 	@Sex CHAR(1),
 	@DateOFB DATETIME
 AS
-	INSERT INTO [dbo].[parents_of_FS] ([Surname],[Name],[FatherName],[Sex],[DateOfBirth]) 
+	INSERT INTO [dbo].[children_of_FS] ([Surname],[Name],[FatherName],[Sex],[DateOfBirth]) 
 	VALUES (@Surname,@Name,@FartherName,@Sex,@DateOFB)
 RETURN 0

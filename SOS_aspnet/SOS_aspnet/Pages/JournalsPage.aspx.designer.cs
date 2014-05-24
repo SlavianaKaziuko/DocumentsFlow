@@ -73,7 +73,7 @@ namespace SOS.Pages {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnExpCfsJournal;
+        protected global::System.Web.UI.HtmlControls.HtmlButton btnExpCfsJournal;
         
         /// <summary>
         /// GVCfsJournal control.
@@ -100,7 +100,7 @@ namespace SOS.Pages {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnExpPfsJournal;
+        protected global::System.Web.UI.HtmlControls.HtmlButton btnExpPfsJournal;
         
         /// <summary>
         /// GVPfsJournal control.
@@ -127,7 +127,7 @@ namespace SOS.Pages {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnExpSpecJournal;
+        protected global::System.Web.UI.HtmlControls.HtmlButton btnExpSpecJournal;
         
         /// <summary>
         /// GVSpecJournal control.

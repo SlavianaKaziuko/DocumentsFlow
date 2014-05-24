@@ -8,6 +8,10 @@
 </asp:Content>
 <asp:Content ID="contContent" ContentPlaceHolderID="ContentHolder" runat="server">
 	<span>Консультация </span><span id="consultId" runat="server"></span>
+
+	<button id="btnExport" class="btn-success pull-right"  onserverclick="btnExport_OnClick" runat="server">
+		<img src="../img/excel-icon.png" width="1" height="1" />
+		Export</button>
 	<table class="table">
 		<tr>
 			<td width="250px">ФИО ребенка</td>
@@ -19,7 +23,8 @@
 		<tr>
 			<td>Дата встречи</td>
 			<td>
-				<uc:calendar runat="server" ID="calendar" />
+				<input type="text" class="form-control input-group-btn input-small" data-format="YYYY/MM/DD" placeholder="YYYY/MM/DD" runat="server" id="txtDate" />
+				<%--<uc:calendar runat="server" ID="calendar" />--%>
 			</td>
 		</tr>
 		<tr>
@@ -56,7 +61,8 @@
 		<tr>
 			<td>Дата следующей встречи</td>
 			<td>
-				<uc:calendar runat="server" ID="calendarnext" />
+				<input type="text" class="form-control input-group-btn input-small" data-format="YYYY/MM/DD" placeholder="YYYY/MM/DD" runat="server" id="txtNextDate" />
+				<%--<uc:calendar runat="server" ID="calendarnext" />--%>
 			</td>
 		</tr>
 		<tr>
@@ -64,7 +70,6 @@
 			<td>
 				<asp:Button runat="server" ID="btnSave" OnClick="Save_Click" CssClass="btn btn-info" Text="Сохранить" ValidationGroup="saving" />
 				<asp:Button runat="server" ID="btnUpdate" OnClick="Update_Click" CssClass="btn btn-info" Text="Обновить" ValidationGroup="saving" />
-				<asp:Button runat="server" ID="btnExport" OnClick="btnExport_OnClick" CssClass="btn btn-info" Text="Печать" ValidationGroup="saving" /></td>
 		</tr>
 		<tr>
 			<td></td>
@@ -75,6 +80,8 @@
 			</td>
 		</tr>
 	</table>
+	<label id="lblerror" runat="server" class="text-error"></label>
+	<br />
 
 
 </asp:Content>

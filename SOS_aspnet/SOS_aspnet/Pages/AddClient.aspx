@@ -6,29 +6,30 @@
 <asp:Content runat="server" ContentPlaceHolderID="ScriptHolder">
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentHolder" runat="server">
-	<select runat="server" id="selType">
-	</select>
+	<asp:DropDownList runat="server" ID="selType"  class="span2" style="margin-left: 20px;"/>
 	<div>
-		<span>Фамилия</span><asp:TextBox runat="server" ID="txtSurname" CssClass="input-medium"></asp:TextBox>
+		<span class="span2">Фамилия</span><asp:TextBox runat="server" ID="txtSurname" CssClass="input-medium"></asp:TextBox>
 	</div>
 	<div>
-		<span>Имя</span><asp:TextBox runat="server" ID="txtName" CssClass="input-medium"></asp:TextBox>
+		<span class="span2">Имя</span><asp:TextBox runat="server" ID="txtName" CssClass="input-medium"></asp:TextBox>
 	</div>
 	<div>
-		<span>Отчество</span><asp:TextBox runat="server" ID="txtFarthersName" CssClass="input-medium"></asp:TextBox>
+		<span class="span2">Отчество</span><asp:TextBox runat="server" ID="txtFarthersName" CssClass="input-medium"></asp:TextBox>
 	</div>
-
-	<div>
-		Пол
+	<span class="span2">Пол</span>
 	<div class="radio" style="width: 500px; margin-left: 50px;">
 		<asp:RadioButtonList runat="server" ID="rbMale">
-			<asp:ListItem>Мужской</asp:ListItem>
+			<asp:ListItem Selected="True">Мужской</asp:ListItem>
 			<asp:ListItem>Женский</asp:ListItem>
 		</asp:RadioButtonList>
-		<div>Дата рождения</div>
 	</div>
-	</div>
-	<asp:Button runat="server" ID="btnSaveClient" OnClick="SaveClient_Click" Text="Сохранить" CssClass="btn" />
+
+	<span class="span2">Дата рождения</span>
+	<input type="text" class="form-control input-group-btn input-small" data-format="YYYY/MM/DD" placeholder="YYYY/MM/DD" runat="server" id="txtBirthDate" />
+
+
+	<br/>
+	<asp:Button runat="server" ID="btnSaveClient" OnClick="SaveClient_Click" Text="Сохранить" CssClass="btn" style="margin-left: 80px;"/>
 
 
 </asp:Content>

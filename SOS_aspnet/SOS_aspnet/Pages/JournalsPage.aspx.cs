@@ -1,7 +1,10 @@
 ﻿using System;
+using System.IO;
+using System.Text;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using GemBox.Spreadsheet;
 using SOS.DataProcessingLayer;
 
 namespace SOS.Pages
@@ -46,11 +49,14 @@ namespace SOS.Pages
         {
             GVCfsJournal.PageIndex = e.NewPageIndex;
             GVCfsJournal.DataBind();
+            GVPfsJournal.PageIndex = e.NewPageIndex;
+            GVPfsJournal.DataBind();
+            GVSpecJournal.PageIndex = e.NewPageIndex;
+            GVSpecJournal.DataBind();
         }
 
         private void SetJournal()
         {
-            //var period = periods_dropdown.SelectedValue;
             var page = Request.QueryString["page"];
             if (string.Equals(page, "vPfsJournal"))
             {
@@ -73,7 +79,11 @@ namespace SOS.Pages
         {
             try
             {
-                _save.SavePrintSpecJournal(Convert.ToInt32(periods_dropdown.SelectedValue), periods_dropdown.Text, _proc.GetSpecJournal(Convert.ToInt32(periods_dropdown.SelectedValue)));
+                var book = _save.SavePrintSpecJournal(Convert.ToInt32(periods_dropdown.SelectedValue), periods_dropdown.Text, _proc.GetSpecJournal(Convert.ToInt32(periods_dropdown.SelectedValue)));
+                Response.Clear();
+                Response.ClearHeaders();
+                book.Save(Response, Path.ChangeExtension(@"ОтчетСотрудники_" + periods_dropdown.SelectedItem.Text, ".xlsx"));
+                Response.End();
             }
             catch (Exception error)
             {
@@ -84,7 +94,11 @@ namespace SOS.Pages
         {
             try
             {
-                _save.SavePrintCfsJournal(Convert.ToInt32(periods_dropdown.SelectedValue), periods_dropdown.Text, _proc.GetCfsJournal(Convert.ToInt32(periods_dropdown.SelectedValue)));
+                var book = _save.SavePrintCfsJournal(Convert.ToInt32(periods_dropdown.SelectedValue), periods_dropdown.Text, _proc.GetCfsJournal(Convert.ToInt32(periods_dropdown.SelectedValue)));
+                Response.Clear();
+                Response.ClearHeaders();
+                book.Save(Response, Path.ChangeExtension(@"ОтчетИндивКонсультДети_" + periods_dropdown.SelectedItem.Text, ".xlsx"));
+                Response.End();
             }
             catch (Exception error)
             {
@@ -95,7 +109,11 @@ namespace SOS.Pages
         {
             try
             {
-                _save.SavePrintPfsJournal(Convert.ToInt32(periods_dropdown.SelectedValue), periods_dropdown.Text, _proc.GetPfsJournal(Convert.ToInt32(periods_dropdown.SelectedValue)));
+                var book = _save.SavePrintPfsJournal(Convert.ToInt32(periods_dropdown.SelectedValue), periods_dropdown.Text, _proc.GetPfsJournal(Convert.ToInt32(periods_dropdown.SelectedValue)));
+                Response.Clear();
+                Response.ClearHeaders();
+                book.Save(Response, Path.ChangeExtension(@"ОтчетИндивКонсультВзр_" + periods_dropdown.SelectedItem.Text, ".xlsx"));
+                Response.End();
             }
             catch (Exception error)
             {

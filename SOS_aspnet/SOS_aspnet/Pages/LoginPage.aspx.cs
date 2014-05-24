@@ -28,7 +28,6 @@ namespace SOS.Pages
 
         protected void LoginUser(object sender, EventArgs e)
         {
-            //ShowErrorMessage("You enter wrong Nickname or Password");
             if (username.Value != string.Empty)
             {
                 if (password.Value != string.Empty)
@@ -38,8 +37,6 @@ namespace SOS.Pages
                     Password = password.Value;
                     if (_membership.ValidateUser(Account, Password))
                     {
-                        //mvLogin.SetActiveView(vWelcome);
-                        //lblUser.Text = Account;
                         _proc.Authorize(Account, Password);
                         FormsAuthentication.SetAuthCookie(Account, false);
                         Response.Redirect("./Main.aspx");
@@ -48,27 +45,23 @@ namespace SOS.Pages
                     {
                         errormessage.InnerText = "Имя пользователя или пароль введены неправильно";
                         errormessage.Visible = true;
-                        //ShowErrorMessage("You enter wrong Nickname or Password");
                     }
                 }
                 else
                 {
                     errormessage.InnerText = "Вы не ввели пароль";
                     errormessage.Visible = true;
-                    //ShowErrorMessage("You did not enter Password");
                 }
             }
             else
             {
                 errormessage.InnerText = "Вы не ввели имя пользователя";
                 errormessage.Visible = true;
-                //ShowErrorMessage("You did not enter NickName");
             }
         }
 
         public void GoToPasswordRestoringPage(object sender, EventArgs e)
         {
-            //mvLogin.SetActiveView(vWait);
             Response.Redirect("~/Pages/PasswordRestoringPage.aspx");
         }
 

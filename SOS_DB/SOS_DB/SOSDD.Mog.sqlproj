@@ -300,6 +300,8 @@
     </Build>
     <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\consults_by_staff.sql" />
     <Build Include="Schema Objects\Schemas\dbo\Views\periods_full.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\getCFSconsults_by_staff.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\getPFSconsults_by_staff.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Scripts\Post-Deployment\staff.PostDeploy.sql">

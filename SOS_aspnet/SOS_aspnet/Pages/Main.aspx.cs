@@ -20,17 +20,28 @@ namespace SOS.Pages
             }
             else
             {
+                if (IsPostBack) return;
                 _curUser = _proc.GetUserByNickName(HttpContext.Current.User.Identity.Name);
-                var stuffjournal = _proc.GetIndivJournalByStaffSet(_curUser.PersonId);
                 GVSpecJournal.DataSource = _proc.GetSpecJournalSet(0);
                 GVSpecJournal.DataBind();
-                GVIndivJournal.DataSource = stuffjournal;
-                selConsult.DataSource = stuffjournal;
-                selConsult.DataTextField = "ID";
-                selConsult.DataValueField = "ID";
-                selConsult.DataBind();
 
-                GVIndivJournal.DataBind();
+                var cfsjournal = _proc.GetIndivCfsJournalByStaffSet(_curUser.PersonId);
+                GVIndivCfsJournal.DataSource = cfsjournal;
+                GVIndivCfsJournal.DataBind();
+                var pfsjournal = _proc.GetIndivPfsJournalByStaffSet(_curUser.PersonId);
+                GVIndivPfsJournal.DataSource = pfsjournal;
+                GVIndivPfsJournal.DataBind();
+
+                selCfsConsult.DataSource = cfsjournal;
+                selCfsConsult.DataTextField = "ID";
+                selCfsConsult.DataValueField = "ID";
+                selCfsConsult.DataBind();
+
+                selPfsConsult.DataSource = pfsjournal;
+                selPfsConsult.DataTextField = "ID";
+                selPfsConsult.DataValueField = "ID";
+                selPfsConsult.DataBind();
+
                 switch (_curUser.Role)
                 {
                     case "Super":
@@ -43,17 +54,23 @@ namespace SOS.Pages
             }
         }
 
+        protected void CFSgridView_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            GVIndivCfsJournal.PageIndex = e.NewPageIndex;
+            GVIndivCfsJournal.DataBind();
+        }
+
+        protected void PFSgridView_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            GVIndivPfsJournal.PageIndex = e.NewPageIndex;
+            GVIndivPfsJournal.DataBind();
+        }
+
         protected void gridView_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
-            GVIndivJournal.PageIndex = e.NewPageIndex;
-            GVIndivJournal.DataBind();
+            GVSpecJournal.PageIndex = e.NewPageIndex;
+            GVSpecJournal.DataBind();
         }
-
-        protected void JournalExport(object sender, EventArgs e)
-        {
-
-        }
-
 
         protected override void OnError(EventArgs e)
         {
@@ -74,9 +91,14 @@ namespace SOS.Pages
         {
         }
 
-        protected void ViewConsult(object sender, EventArgs e)
+        protected void ViewCfsConsult(object sender, EventArgs e)
         {
-            Response.Redirect("CFSConsult.aspx?consultid=" + selConsult.SelectedValue);
+            Response.Redirect("CFSConsult.aspx?consultid=" + selCfsConsult.SelectedValue);
+        }
+
+        protected void ViewPfsConsult(object sender, EventArgs e)
+        {
+            Response.Redirect("PFSConsult.aspx?consultid=" + selPfsConsult.SelectedValue);
         }
     }
 }
