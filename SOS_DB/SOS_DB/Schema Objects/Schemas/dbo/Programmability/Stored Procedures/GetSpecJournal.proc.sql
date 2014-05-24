@@ -44,7 +44,7 @@
 		[ContentTypeID]
 		FROM [dbo].[childrenFS_indiv] cons
 		JOIN [dbo].[staff] p ON p.ID = cons.LocalSpecialistID
-		JOIN [dbo].[periods] per ON per.[ID] = @periodId
+		JOIN [dbo].[periods_full] per ON per.[ID] = @periodId
 		WHERE cons.[DateTime] BETWEEN per.[StartDate] AND per.[EndtDate]) AS res
 	GROUP BY res.[FIO],res.LocalSpecialistID
 	
@@ -76,7 +76,7 @@
 			[ContentTypeID]
 		FROM [dbo].[parentsFS_indiv] cons
 		JOIN [dbo].[staff] p ON p.ID = cons.LocalSpecialistID
-		JOIN [dbo].[periods] per ON per.[ID] = @periodId
+		JOIN [dbo].[periods_full] per ON per.[ID] = @periodId
 		WHERE cons.[DateTime] BETWEEN per.[StartDate] AND per.[EndtDate]
 		) AS res2
 		GROUP BY res2.[FIO],res2.LocalSpecialistID

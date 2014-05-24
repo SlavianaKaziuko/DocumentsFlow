@@ -1,7 +1,8 @@
 ﻿CREATE PROCEDURE [dbo].[consults_by_staff]
 	@specialistID int
 AS
-	SELECT 'CFS' AS N'Клиент (тип)',
+	SELECT CFSindiv.ID AS 'ID',
+		'CFS' AS N'Клиент (тип)',
 		CFS.[Surname] AS N'Фамилия',
 		CFS.Name AS N'Имя',
 		CFS.FatherName AS N'Отчество',
@@ -12,9 +13,12 @@ AS
 	JOIN children_of_FS as CFS on CFS.ID = CFSindiv.CLientID
 	JOIN indiv_form_type AS f on f.ID = CFSindiv.FormTypeID
 	JOIN indiv_content_type AS c on c.ID = CFSindiv.ContentTypeID
-	WHERE CFSindiv.LocalSpecialistID = @specialistID
+	JOIN [dbo].[periods_full] per ON per.[ID] = 0
+	WHERE CFSindiv.[DateTime] BETWEEN per.[StartDate] AND per.[EndtDate]
+	AND CFSindiv.LocalSpecialistID = @specialistID
 	UNION
-	SELECT 'PFS' AS N'Клиент (тип)',
+	SELECT PFSindiv.ID AS 'ID',
+		'PFS' AS N'Клиент (тип)',
 		PFS.[Surname] AS N'Фамилия',
 		PFS.Name AS N'Имя',
 		PFS.FatherName AS N'Отчество',
@@ -25,5 +29,7 @@ AS
 	JOIN parents_of_FS as PFS on PFS.ID = PFSindiv.CLientID
 	JOIN indiv_form_type AS f on f.ID = PFSindiv.FormTypeID
 	JOIN indiv_content_type AS c on c.ID = PFSindiv.ContentTypeID
-	WHERE PFSindiv.LocalSpecialistID = @specialistID
+	JOIN [dbo].[periods_full] per ON per.[ID] = 0
+	WHERE PFSindiv.[DateTime] BETWEEN per.[StartDate] AND per.[EndtDate]
+	AND PFSindiv.LocalSpecialistID = @specialistID
 RETURN 0

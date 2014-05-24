@@ -20,7 +20,7 @@ AS SELECT
 	[ContentTypeID]
 	FROM [dbo].[parentsFS_indiv] cons
 	JOIN [dbo].[parents_of_FS] p ON p.ID = cons.CLientID
-	JOIN [dbo].[periods] per ON per.[ID] = @periodId
+	JOIN [dbo].[periods_full] per ON per.[ID] = @periodId
 	WHERE cons.[DateTime] BETWEEN per.[StartDate] AND per.[EndtDate]) AS res
 	GROUP BY res.[FIO]
 RETURN 0
