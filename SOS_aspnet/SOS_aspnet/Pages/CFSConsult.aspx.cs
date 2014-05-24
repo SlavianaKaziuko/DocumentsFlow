@@ -10,11 +10,13 @@ namespace SOS.Pages
     public partial class CFSConsult : System.Web.UI.Page
     {
         private readonly DataProcessing _proc = new DataProcessing();
+        private SaveExport _save;
 
-        
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            _save = new SaveExport(Server.MapPath("~"));
+
             if (!Page.IsPostBack)
             {
                 selChild.DataSource = _proc.GetCfsList();
@@ -44,12 +46,15 @@ namespace SOS.Pages
                 txtResults.Text = consult.ConversResults;
                 btnSave.Visible = false;
                 btnUpdate.Visible = true;
+                btnExport.Visible = true;
 
             }
             else
             {
                 btnSave.Visible = true;
                 btnUpdate.Visible = false;
+                btnExport.Visible = false;
+
             }
 
         }
@@ -82,6 +87,7 @@ namespace SOS.Pages
                     }).ToString(CultureInfo.InvariantCulture);
                     btnSave.Visible = false;
                     btnUpdate.Visible = true;
+                    btnExport.Visible = true;
                 }
             }
         }
@@ -131,5 +137,9 @@ namespace SOS.Pages
         }
 
 
+        protected void btnExport_OnClick(object sender, EventArgs e)
+        {
+            _save.PrintCfsConsult(Convert.ToInt32(consultId.InnerText), _proc.GetCfsConsult(Convert.ToInt32(consultId.InnerText)));
+        }
     }
 }

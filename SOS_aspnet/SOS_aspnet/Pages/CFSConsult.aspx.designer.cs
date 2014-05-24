@@ -139,6 +139,15 @@ namespace SOS.Pages {
         protected global::System.Web.UI.WebControls.Button btnUpdate;
         
         /// <summary>
+        /// btnExport control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnExport;
+        
+        /// <summary>
         /// errormessage control.
         /// </summary>
         /// <remarks>
@@ -148,12 +157,12 @@ namespace SOS.Pages {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl errormessage;
         
         /// <summary>
-        /// ValidationSummary1 control.
+        /// VSSaving control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ValidationSummary ValidationSummary1;
+        protected global::System.Web.UI.WebControls.ValidationSummary VSSaving;
     }
 }

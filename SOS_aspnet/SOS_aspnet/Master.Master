@@ -8,7 +8,7 @@
 	<title>
 		<asp:ContentPlaceHolder ID="TitleHolder" runat="server"></asp:ContentPlaceHolder>
 	</title>
-	<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+	<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
 	<link type="text/css" rel="stylesheet" href="/css/bootstrap.css" />
 	<link type="text/css" rel="stylesheet" href="/css/calendar.css" />
 	<link type="text/css" rel="stylesheet" href="/css/bootstrap.min.css" />
@@ -18,6 +18,19 @@
 	<script type="text/javascript" src="/js/bootstrap-dropdown.js"></script>
 	<script type="text/javascript" src="/js/calendar.js"></script>
 	<script src="http://cdnjs.cloudflare.com/ajax/libs/moment.js/2.5.1/moment.min.js"></script>
+	<script type="text/javascript">
+		function Confirm() {
+			var confirm_value = document.createElement("INPUT");
+			confirm_value.type = "hidden";
+			confirm_value.name = "confirm_value";
+			if (confirm("Вы уверены, что хотите выйти?")) {
+				confirm_value.value = "Yes";
+			} else {
+				confirm_value.value = "No";
+			}
+			document.forms[0].appendChild(confirm_value);
+		}
+	</script>
 
 	<asp:ContentPlaceHolder ID="ScriptHolder" runat="server"></asp:ContentPlaceHolder>
 </head>
@@ -35,8 +48,8 @@
 							<li><a id="linkPfsConsult" class="" href="/Pages/PFSConsult.aspx" runat="server">Консультация родителя семьи-бенефицианта</a></li>
 						</ul>
 					</td>
-					<td class="text-center"><span runat="server" id="lblUserWelcome" style="color: #32a7d8"></span><span class="value" id="lblId" runat="server"></span>
-						<asp:ImageButton runat="server" OnClick="LogoutUser" ImageUrl="/img/logouticon.png" ImageAlign="Right"/>
+					<td class="text-center" style="width: 123px;"><span runat="server" id="lblUserWelcome" style="color: #32a7d8"></span><span class="value" id="lblId" runat="server"></span>
+						<asp:ImageButton ID="btnConfirm" runat="server" OnClick="OnConfirm" OnClientClick="Confirm()" ImageUrl="/img/logouticon.png" ImageAlign="Right" />
 					</td>
 				</tr>
 			</table>

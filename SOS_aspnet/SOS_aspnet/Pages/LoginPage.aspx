@@ -9,7 +9,6 @@
 	<link type="text/css" rel="stylesheet" href="../css/bootstrap.css" />
 	<%--	<script type="text/javascript" src="~/js/jquery.js"></script>--%>
 	<script type="text/javascript" src="../js/bootstrap.min.js"></script>
-	
 	<%--	<script type="text/javascript" src="~/js/bootstrap-dropdown.js"></script>--%>
 </head>
 <body style="min-height: 500px;">
@@ -70,7 +69,7 @@
 						</tr>
 					</table>
 				</div>
-				<div style="display: inline-block; margin: 10px auto 0; width: 70%;">
+				<div style="display: inline-block; margin: 10px auto 0; width: 70%;" >
 					<ul class="slides">
 						<input type="radio" name="radio-btn" id="img-1" checked />
 						<li class="slide-container">

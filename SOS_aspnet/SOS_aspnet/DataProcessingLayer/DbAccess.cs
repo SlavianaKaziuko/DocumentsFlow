@@ -330,7 +330,7 @@ namespace SOS.DataProcessingLayer
         public List<Period> GetPeriods()
         {
             var results = new List<Period>();
-            var command = new SqlCommand("SELECT ID, Name FROM [dbo].[periods]", _connection);
+            var command = new SqlCommand("SELECT ID, Name FROM [dbo].[periods_full]", _connection);
             try
             {
                 _connection.Open();

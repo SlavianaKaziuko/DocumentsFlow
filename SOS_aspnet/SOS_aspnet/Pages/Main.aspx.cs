@@ -1,22 +1,46 @@
 ﻿using System;
-using System.Net;
 using System.Web;
+using System.Web.UI;
 using System.Web.UI.WebControls;
+using SOS.BusinessEntities;
 using SOS.DataProcessingLayer;
 
 namespace SOS.Pages
 {
-    public partial class Main : System.Web.UI.Page
+    public partial class Main : Page
     {
         private readonly DataProcessing _proc = new DataProcessing();
+        private User _curUser;
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            
-            var user = _proc.GetUserByNickName(HttpContext.Current.User.Identity.Name);
-            if (Master != null)
-                GVIndivJournal.DataSource = _proc.GetIndivJournalByStaffSet(user.PersonId);
-            DataBind();
+            if (HttpContext.Current.User.Identity.IsAuthenticated == false)
+            {
+                Response.Redirect("~/Pages/LoginPage.aspx");
+            }
+            else
+            {
+                _curUser = _proc.GetUserByNickName(HttpContext.Current.User.Identity.Name);
+                var stuffjournal = _proc.GetIndivJournalByStaffSet(_curUser.PersonId);
+                GVSpecJournal.DataSource = _proc.GetSpecJournalSet(0);
+                GVSpecJournal.DataBind();
+                GVIndivJournal.DataSource = stuffjournal;
+                selConsult.DataSource = stuffjournal;
+                selConsult.DataTextField = "ID";
+                selConsult.DataValueField = "ID";
+                selConsult.DataBind();
+
+                GVIndivJournal.DataBind();
+                switch (_curUser.Role)
+                {
+                    case "Super":
+                        divUser.Visible = false;
+                        break;
+                    case "User":
+                        divSuper.Visible = false;
+                        break;
+                }
+            }
         }
 
         protected void gridView_PageIndexChanging(object sender, GridViewPageEventArgs e)
@@ -27,7 +51,7 @@ namespace SOS.Pages
 
         protected void JournalExport(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+
         }
 
 
@@ -46,10 +70,13 @@ namespace SOS.Pages
             base.OnError(e);
         }
 
-        protected void GVIndivJournal_Sorting(object sender, GridViewSortEventArgs e)
+        protected void Sorting(object sender, GridViewSortEventArgs e)
         {
-
         }
 
+        protected void ViewConsult(object sender, EventArgs e)
+        {
+            Response.Redirect("CFSConsult.aspx?consultid=" + selConsult.SelectedValue);
+        }
     }
 }

@@ -79,7 +79,8 @@
 			<td></td>
 			<td>
 				<asp:Button runat="server" ID="btnSave" OnClick="Save_Click" type="submit" CssClass="btn btn-info" Text="Сохранить" />
-				<asp:Button runat="server" ID="btnUpdate" OnClick="Update_Click" CssClass="btn btn-info" Text="Обновить" ValidationGroup="saving" /></td>
+				<asp:Button runat="server" ID="btnUpdate" OnClick="Update_Click" CssClass="btn btn-info" Text="Обновить" ValidationGroup="saving" />
+				<asp:Button runat="server" ID="btnExport" OnClick="btnExport_OnClick" CssClass="btn btn-info" Text="Печать" ValidationGroup="saving" /></td>
 		</tr>
 		<tr>
 			<td></td>

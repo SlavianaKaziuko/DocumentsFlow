@@ -42,7 +42,7 @@ namespace SOS.Pages
                         //lblUser.Text = Account;
                         _proc.Authorize(Account, Password);
                         FormsAuthentication.SetAuthCookie(Account, false);
-                        Response.Redirect("~/Pages/Main.aspx");
+                        Response.Redirect("./Main.aspx");
                     }
                     else
                     {

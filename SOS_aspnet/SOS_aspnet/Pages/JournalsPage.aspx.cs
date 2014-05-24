@@ -1,9 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using SOS.BusinessEntities;
 using SOS.DataProcessingLayer;
 
 namespace SOS.Pages
@@ -52,6 +50,7 @@ namespace SOS.Pages
 
         private void SetJournal()
         {
+            //var period = periods_dropdown.SelectedValue;
             var page = Request.QueryString["page"];
             if (string.Equals(page, "vPfsJournal"))
             {

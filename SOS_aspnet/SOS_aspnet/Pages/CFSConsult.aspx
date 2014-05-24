@@ -63,14 +63,15 @@
 			<td></td>
 			<td>
 				<asp:Button runat="server" ID="btnSave" OnClick="Save_Click" CssClass="btn btn-info" Text="Сохранить" ValidationGroup="saving" />
-				<asp:Button runat="server" ID="btnUpdate" OnClick="Update_Click" CssClass="btn btn-info" Text="Обновить" ValidationGroup="saving" /></td>
+				<asp:Button runat="server" ID="btnUpdate" OnClick="Update_Click" CssClass="btn btn-info" Text="Обновить" ValidationGroup="saving" />
+				<asp:Button runat="server" ID="btnExport" OnClick="btnExport_OnClick" CssClass="btn btn-info" Text="Печать" ValidationGroup="saving" /></td>
 		</tr>
 		<tr>
 			<td></td>
 			<td>
 				<div id="errormessage" runat="server" visible="False" style="color: red; text-align: center;">
 				</div>
-				<asp:ValidationSummary ID="ValidationSummary1" runat="server" ValidationGroup="saving" DisplayMode="BulletList" />
+				<asp:ValidationSummary ID="VSSaving" runat="server" ValidationGroup="saving" DisplayMode="BulletList" />
 			</td>
 		</tr>
 	</table>

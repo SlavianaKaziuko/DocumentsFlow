@@ -13,6 +13,15 @@ namespace SOS.Pages {
     public partial class Main {
         
         /// <summary>
+        /// divUser control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divUser;
+        
+        /// <summary>
         /// GVIndivJournal control.
         /// </summary>
         /// <remarks>
@@ -22,12 +31,39 @@ namespace SOS.Pages {
         protected global::System.Web.UI.WebControls.GridView GVIndivJournal;
         
         /// <summary>
-        /// btnExpJournal control.
+        /// selConsult control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnExpJournal;
+        protected global::System.Web.UI.WebControls.DropDownList selConsult;
+        
+        /// <summary>
+        /// btnGoToConsult control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlButton btnGoToConsult;
+        
+        /// <summary>
+        /// divSuper control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divSuper;
+        
+        /// <summary>
+        /// GVSpecJournal control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView GVSpecJournal;
     }
 }

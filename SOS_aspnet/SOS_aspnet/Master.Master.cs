@@ -4,6 +4,7 @@ using System.Globalization;
 using System.Web;
 using System.Web.Security;
 using System.Web.UI.HtmlControls;
+using SOS.BusinessEntities;
 using SOS.DataProcessingLayer;
 
 namespace SOS
@@ -11,6 +12,7 @@ namespace SOS
     public partial class Master : System.Web.UI.MasterPage
     {
         private readonly DataProcessing _proc = new DataProcessing();
+        private User _user;
         
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -22,14 +24,15 @@ namespace SOS
             {
                 if (!Page.IsPostBack)
                 {
-                    var user = _proc.GetUserByNickName(HttpContext.Current.User.Identity.Name);
+                    _user = _proc.GetUserByNickName(HttpContext.Current.User.Identity.Name);
                     var lblName = (HtmlGenericControl) this.FindControl("lblUserWelcome");
-                    lblName.InnerHtml = user.Welcome;
+                    lblName.InnerHtml = _user.Welcome;
                     var lblId = (HtmlGenericControl) this.FindControl("lblId");
-                    lblId.InnerHtml = user.PersonId.ToString(CultureInfo.InvariantCulture);
-                    if (user.Role == "Super")
+                    lblId.InnerHtml = _user.PersonId.ToString(CultureInfo.InvariantCulture);
+                    if (_user.Role == "Super")
                     {
-
+                        ((HtmlAnchor)FindControl("linkCfsConsult")).Visible = false;
+                        ((HtmlAnchor)FindControl("linkPfsConsult")).Visible = false;
                     }
                     else
                     {
@@ -68,7 +71,9 @@ namespace SOS
 
         protected void LogoutUser(object sender, EventArgs e)
         {
+
             FormsAuthentication.SignOut();
+
             Response.Redirect("~/Pages/LoginPage.aspx");
         }
 
@@ -95,6 +100,14 @@ namespace SOS
             base.OnError(e);
         }
 
+
+        protected void OnConfirm(object sender, EventArgs e)
+        {
+            var confirmValue = Request.Form["confirm_value"];
+            if (confirmValue != "Yes") return;
+            FormsAuthentication.SignOut();
+            Response.Redirect("~/Pages/LoginPage.aspx");
+        }
 
     }
 }
