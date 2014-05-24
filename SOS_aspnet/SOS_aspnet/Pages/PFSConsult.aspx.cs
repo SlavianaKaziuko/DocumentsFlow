@@ -42,6 +42,14 @@ namespace SOS.Pages
                     txtConversation.Text = consult.ConversDiscription;
                     txtResults.Text = consult.ConversResults;
                     txtNextDate.Value = consult.NextSessionDate.ToString("d", CultureInfo.InvariantCulture);
+                    chbConsulting.Checked = consult.StcConsultation;
+                    chbInform.Checked = consult.StcGivingInformation;
+                    chbPsyhoDiagn.Checked = consult.StcPsychodiagnost;
+                    chbTerapetSession.Checked = consult.StcTerrapevtSession;
+                    txtAnotherType.Text = consult.StcAnother;
+                    rbIsPlanned.Checked = consult.StpScheduled;
+                    txtAnotherPlanned.Text = consult.StpAnother;
+
                     btnSave.Visible = false;
                     btnUpdate.Visible = true;
                     btnExport.Visible = true;

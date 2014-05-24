@@ -42,20 +42,20 @@
 		<tr>
 			<td>Описание проблемы, запрос</td>
 			<td>
-				<asp:TextBox ID="txtProblem" runat="server" TextMode="MultiLine" Width="95%"></asp:TextBox>
+				<asp:TextBox ID="txtProblem" runat="server" TextMode="MultiLine" Width="99%"></asp:TextBox>
 				<asp:RequiredFieldValidator ID="rfvtxtProblem" runat="server" ErrorMessage="Описание проблемы, запрос не введен" ControlToValidate="txtProblem" ValidationGroup="saving" Display="Dynamic" Text="*" Font-Size="Large"></asp:RequiredFieldValidator>
 			</td>
 		</tr>
 		<tr>
 			<td>Основные моменты разговора (включая чувства) </td>
 			<td>
-				<asp:TextBox ID="txtConversation" runat="server" TextMode="MultiLine" Width="95%"></asp:TextBox>
+				<asp:TextBox ID="txtConversation" runat="server" TextMode="MultiLine" Width="99%"></asp:TextBox>
 				<asp:RequiredFieldValidator ID="rfvConversation" runat="server" ControlToValidate="txtConversation" ValidationGroup="saving" ErrorMessage="Основные моменты разговора не введены" Display="Dynamic" Text="*" Font-Size="Large"></asp:RequiredFieldValidator></td>
 		</tr>
 		<tr>
 			<td>Итог разговора, рекомендации </td>
 			<td>
-				<asp:TextBox ID="txtResults" runat="server" TextMode="MultiLine" Width="95%"></asp:TextBox>
+				<asp:TextBox ID="txtResults" runat="server" TextMode="MultiLine" Width="99%"></asp:TextBox>
 				<asp:RequiredFieldValidator ID="rfvResults" runat="server" ErrorMessage="Итог разговора, рекомендации не введены" ControlToValidate="txtResults" ValidationGroup="saving" Display="Dynamic" Text="*" Font-Size="Large"></asp:RequiredFieldValidator></td>
 		</tr>
 		<tr>
@@ -81,7 +81,5 @@
 		</tr>
 	</table>
 	<label id="lblerror" runat="server" class="text-error"></label>
-	<br />
-
 
 </asp:Content>
