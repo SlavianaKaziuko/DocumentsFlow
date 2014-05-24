@@ -74,7 +74,7 @@
 						<input type="radio" name="radio-btn" id="img-1" checked />
 						<li class="slide-container">
 							<div class="slide">
-								<img src="../img/photos/IMGP1022.jpg" />
+								<img src="../img/photos/IMG_3387.jpg" />
 							</div>
 							<div class="nav">
 								<label for="img-6" class="prev">&#x2039;</label>

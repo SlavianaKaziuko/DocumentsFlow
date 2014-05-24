@@ -1,7 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master.Master" AutoEventWireup="true" CodeBehind="JournalsPage.aspx.cs" Inherits="SOS.Pages.JournalsPage" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="TitleHolder" runat="server">
-	CFS Journal
+	Журналы
 </asp:Content>
 
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentHolder" runat="server">
