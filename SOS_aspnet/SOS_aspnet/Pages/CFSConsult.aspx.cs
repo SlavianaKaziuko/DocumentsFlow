@@ -84,6 +84,7 @@ namespace SOS.Pages
                     btnSave.Visible = false;
                     btnUpdate.Visible = true;
                     btnExport.Visible = true;
+                    message.InnerText = "Запись сохранена!";
                 }
             }
         }
@@ -98,6 +99,7 @@ namespace SOS.Pages
             else
             {
                 if (Master != null)
+                {
                     _proc.UpdateCfsConsult(new CfsConsult
                     {
                         Id = Convert.ToInt32(consultId.InnerText),
@@ -113,7 +115,10 @@ namespace SOS.Pages
                         NextSessionDate =
                             Convert.ToDateTime(txtNextDate.Value, CultureInfo.InvariantCulture)
                     });
+                
+                message.InnerText = "Запись обновлена!";
             }
+        }
         }
 
 

@@ -8,7 +8,7 @@
 </asp:Content>
 <asp:Content ID="contContent" ContentPlaceHolderID="ContentHolder" runat="server">
 	<span>Консультация </span><span id="consultId" runat="server"></span>
-
+	<span id="message" runat="server" style="color: #5bb75b;"></span>
 	<button id="btnExport" class="btn-success pull-right"  onserverclick="btnExport_OnClick" runat="server">
 		<img src="../img/excel-icon.png" width="1" height="1" />
 		Export</button>

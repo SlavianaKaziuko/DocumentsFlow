@@ -97,6 +97,7 @@ namespace SOS.Pages
                 btnSave.Visible = false;
                 btnUpdate.Visible = true;
                 btnExport.Visible = true;
+                message.InnerText = "Запись сохранена!";
             }
         }
 
@@ -111,7 +112,7 @@ namespace SOS.Pages
             else
             {
                 if (Master != null)
-                    _proc.UpdatePfsConsult(new PfsConsult
+                {_proc.UpdatePfsConsult(new PfsConsult
                     {
                         Id = Convert.ToInt32(consultId.InnerText),
                         ClientId = Convert.ToInt32(selParent.Value),
@@ -132,6 +133,8 @@ namespace SOS.Pages
                         StpScheduled = rbIsPlanned.Checked,
                         StpAnother = txtAnotherPlanned.Text
                     });
+                message.InnerText = "Запись обновлена!";
+                }
             }
         }
 

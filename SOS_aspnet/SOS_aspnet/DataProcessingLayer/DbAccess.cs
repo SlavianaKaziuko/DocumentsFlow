@@ -311,6 +311,7 @@ namespace SOS.DataProcessingLayer
                     consult.ClientId = Convert.ToInt32(dr["ClientID"].ToString());
                     consult.FormType = Convert.ToInt32(dr["FormID"].ToString());
                     consult.ContentType = Convert.ToInt32(dr["ContentID"].ToString());
+                    consult.NextSessionDate = Convert.ToDateTime(dr["Дата след."].ToString());
                 }
             }
             catch (SqlException exp)

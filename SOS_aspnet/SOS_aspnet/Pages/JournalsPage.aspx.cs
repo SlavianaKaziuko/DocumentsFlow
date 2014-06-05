@@ -79,7 +79,7 @@ namespace SOS.Pages
         {
             try
             {
-                var book = _save.SavePrintSpecJournal(Convert.ToInt32(periods_dropdown.SelectedValue), periods_dropdown.Text, _proc.GetSpecJournal(Convert.ToInt32(periods_dropdown.SelectedValue)));
+                var book = _save.SavePrintSpecJournal(Convert.ToInt32(periods_dropdown.SelectedValue), periods_dropdown.SelectedItem.Text, _proc.GetSpecJournal(Convert.ToInt32(periods_dropdown.SelectedValue)));
                 Response.Clear();
                 Response.ClearHeaders();
                 book.Save(Response, Path.ChangeExtension(@"ОтчетСотрудники_" + periods_dropdown.SelectedItem.Text, ".xlsx"));
@@ -94,7 +94,7 @@ namespace SOS.Pages
         {
             try
             {
-                var book = _save.SavePrintCfsJournal(Convert.ToInt32(periods_dropdown.SelectedValue), periods_dropdown.Text, _proc.GetCfsJournal(Convert.ToInt32(periods_dropdown.SelectedValue)));
+                var book = _save.SavePrintCfsJournal(Convert.ToInt32(periods_dropdown.SelectedValue), periods_dropdown.SelectedItem.Text, _proc.GetCfsJournal(Convert.ToInt32(periods_dropdown.SelectedValue)));
                 Response.Clear();
                 Response.ClearHeaders();
                 book.Save(Response, Path.ChangeExtension(@"ОтчетИндивКонсультДети_" + periods_dropdown.SelectedItem.Text, ".xlsx"));
@@ -109,7 +109,7 @@ namespace SOS.Pages
         {
             try
             {
-                var book = _save.SavePrintPfsJournal(Convert.ToInt32(periods_dropdown.SelectedValue), periods_dropdown.Text, _proc.GetPfsJournal(Convert.ToInt32(periods_dropdown.SelectedValue)));
+                var book = _save.SavePrintPfsJournal(Convert.ToInt32(periods_dropdown.SelectedValue), periods_dropdown.SelectedItem.Text, _proc.GetPfsJournal(Convert.ToInt32(periods_dropdown.SelectedValue)));
                 Response.Clear();
                 Response.ClearHeaders();
                 book.Save(Response, Path.ChangeExtension(@"ОтчетИндивКонсультВзр_" + periods_dropdown.SelectedItem.Text, ".xlsx"));
