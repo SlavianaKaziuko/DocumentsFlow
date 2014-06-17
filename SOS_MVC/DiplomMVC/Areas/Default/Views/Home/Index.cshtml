@@ -1,0 +1,10 @@
+﻿@model DiplomMVC.Areas.Default.Models.Home.IndexModel
+
+@using (Html.BeginForm("index", "home", FormMethod.Post))
+{
+	@Html.LabelFor(model => model.FirstName)
+	@Html.LabelFor(model => model.LastName)
+	@Html.EditorFor(model => model.UserName)
+	
+	<button type="submit">Save</button>
+}
